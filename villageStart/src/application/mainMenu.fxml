@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <BorderPane layoutX="-6.0" layoutY="-7.0">
+         <center>
+            <AnchorPane>
+               <children>
+                  <ImageView fitHeight="522.0" fitWidth="562.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../images/villageMainMenu.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#ab620f" layoutX="57.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What will you do today?" textAlignment="CENTER" wrappingWidth="407.77490234375">
+                     <font>
+                        <Font name="Herculanum" size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="jobsBtn" alignment="CENTER" layoutX="77.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#goToJobsWindow" prefHeight="48.0" prefWidth="152.0" text="Jobs" textAlignment="CENTER">
+                     <font>
+                        <Font name="Herculanum" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="BlackSmithBtn" layoutX="304.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#goToBlacksmith" prefHeight="48.0" prefWidth="142.0" text="Blacksmith">
+                     <font>
+                        <Font name="Herculanum" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="invetoryCheckBtn" depthTest="DISABLE" layoutX="180.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#goToInventoryCheck" prefHeight="48.0" prefWidth="162.0" text="Inventory Check">
+                     <font>
+                        <Font name="Herculanum" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Jobs">
+                  <items>
+                    <MenuItem fx:id="forestMenuItem" mnemonicParsing="false" onAction="#goToForest" text="Forest" />
+                        <MenuItem fx:id="caveMenuItem" mnemonicParsing="false" onAction="#goToCaveWindow" text="Cave" />
+                        <MenuItem fx:id="mountainMenuItem" mnemonicParsing="false" onAction="#goToMountainWindow" text="Mountain" />
+                        <MenuItem fx:id="riverBankMenuItem" mnemonicParsing="false" onAction="#goToRiverBank" text="River Bank" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="howToPlayMenuItem" mnemonicParsing="false" onAction="#goToHowToPlay" text="How to play" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
