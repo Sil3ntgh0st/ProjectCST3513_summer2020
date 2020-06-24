@@ -1,6 +1,7 @@
 package villageGathererGUI;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class villageStart extends villageMainMenu {
@@ -46,6 +47,8 @@ public class villageStart extends villageMainMenu {
 		startGame = new JButton("START");
 		startGame.setBackground(Color.black);
 		startGame.setForeground(newOrange);
+		startGame.addActionListener(new CAL());
+		
 		
 
 		
@@ -66,5 +69,12 @@ public class villageStart extends villageMainMenu {
 
 		
 	}
+	class CAL implements ActionListener{
 
+		public void actionPerformed(ActionEvent e){
+	
+			villageMainMenu window = new villageMainMenu();
+			window.frame.setVisible(true);
+		}
+	}
 }

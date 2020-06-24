@@ -34,7 +34,7 @@ public class villageMainMenu {
 		
 		
 		new villageStart();
-		new villageMainMenu();
+		//new villageMainMenu();
 		
 	}
 	
@@ -89,9 +89,8 @@ public class villageMainMenu {
 		con.add(textFrame);
 		con.add(buttonPanel);
 	
-		
 		frame.pack();
-		frame.setVisible(true);
+		frame.setVisible(false);
 	}
 	
 	public void villageStartBtnHandler() {
