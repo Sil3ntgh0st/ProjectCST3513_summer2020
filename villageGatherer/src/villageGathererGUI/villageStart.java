@@ -11,20 +11,34 @@ public class villageStart extends villageMainMenu {
 	public villageStart() {
 		
 		buttonPanel = new JPanel();
-		buttonPanel.setBounds(300, 400, 200, 100);
+		buttonPanel.setBounds(300, 200, 200, 100);
 		buttonPanel.setBackground(Color.black);
 		
 		titleFrame = new JPanel();
 		titleFrame.setBounds(100, 100, 300, 150);
-		titleFrame.setLayout(new GridLayout(1,1));
 		titleFrame.setBackground(newOrange);
+		titleFrame.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
 		
 		
+		c.weightx = 1;
+		c.weighty = 1;
+		c.fill = GridBagConstraints.HORIZONTAL;
+
+	
 		importantMessages = new JLabel("<html>Welcome to your Village<br/><br>" + "\n Enter your username" + "</html>");
-		importantMessages.setHorizontalAlignment(JLabel.CENTER);
+		c.gridx=0;
+		c.gridwidth = 2;
+		c.gridy= 0;
+		titleFrame.add(importantMessages, c);
+		
+		
 		usernameInput = new JTextField();
+		c.gridx=0;
+		c.gridwidth = 2;
+		c.gridy=1;
 		usernameInput.setPreferredSize(null);
-		//setSize(new Dimension(20, 20));
+		titleFrame.add(usernameInput, c);
 		
 		
 		
@@ -41,8 +55,6 @@ public class villageStart extends villageMainMenu {
 		frame.setLayout(new GridLayout(2,1));
 		con = frame.getContentPane();
 		
-		titleFrame.add(importantMessages);
-		titleFrame.add(usernameInput);
 		buttonPanel.add(startGame);
 
 		con.add(titleFrame);
