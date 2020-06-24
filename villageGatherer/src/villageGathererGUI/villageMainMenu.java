@@ -1,6 +1,8 @@
 package villageGathererGUI;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 
@@ -15,7 +17,7 @@ public class villageMainMenu {
 	protected JLabel importantMessages, topHUDinfo;
 	protected Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
 	protected Color newOrange = new Color(255, 153, 51);
-	private String userName;
+	private String userName, location;
 	private int energy;
 	
 	
@@ -34,7 +36,6 @@ public class villageMainMenu {
 		
 		
 		new villageStart();
-		//new villageMainMenu();
 		
 	}
 	
@@ -74,6 +75,14 @@ public class villageMainMenu {
 		
 		
 		buttonPanel.add(jobsChoice);
+		jobsChoice.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				villageMainMenu newWindow = new villageMainMenu();
+				
+				newWindow.frame.setVisible(true);
+			}
+		});
 		buttonPanel.add(blacksmithChoice);
 		buttonPanel.add(inventoryChoice);
 		topHUD.add(topHUDinfo);
@@ -89,12 +98,9 @@ public class villageMainMenu {
 		con.add(textFrame);
 		con.add(buttonPanel);
 	
+		
 		frame.pack();
 		frame.setVisible(false);
-	}
-	
-	public void villageStartBtnHandler() {
-		
 	}
 	
 }

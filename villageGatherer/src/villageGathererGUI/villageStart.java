@@ -1,13 +1,16 @@
 package villageGathererGUI;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class villageStart extends villageMainMenu {
 	
 	private JButton startGame;
 	private JTextField usernameInput;
+	
 
 	public villageStart() {
 		
@@ -41,14 +44,9 @@ public class villageStart extends villageMainMenu {
 		usernameInput.setPreferredSize(null);
 		titleFrame.add(usernameInput, c);
 		
-		
-		
-		
 		startGame = new JButton("START");
 		startGame.setBackground(Color.black);
 		startGame.setForeground(newOrange);
-		startGame.addActionListener(new CAL());
-		
 		
 
 		
@@ -59,6 +57,14 @@ public class villageStart extends villageMainMenu {
 		con = frame.getContentPane();
 		
 		buttonPanel.add(startGame);
+		startGame.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				villageMainMenu newWindow = new villageMainMenu();
+				
+				newWindow.frame.setVisible(true);
+			}
+		});
 
 		con.add(titleFrame);
 		con.add(buttonPanel);
@@ -66,15 +72,8 @@ public class villageStart extends villageMainMenu {
 		frame.pack();
 		frame.setVisible(true);
 		
-
-		
 	}
-	class CAL implements ActionListener{
-
-		public void actionPerformed(ActionEvent e){
 	
-			villageMainMenu window = new villageMainMenu();
-			window.frame.setVisible(true);
-		}
-	}
+
+
 }
