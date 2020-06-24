@@ -6,15 +6,17 @@ import java.util.*;
 
 public class villageMainMenu {
 	
-	JFrame frame;
-	Container con;
-	JPanel textFrame, buttonPanel, topHUD;
-	JButton inventoryChoice, blacksmithChoice, jobsChoice;
-	JLabel importantMessages, topHUDinfo;
-	Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
-	Color newOrange = new Color(255, 153, 51);
-	String userName;
-	int energy;
+	protected JFrame frame;
+	protected Container con;
+	protected JPanel titleFrame, textFrame;
+	protected JPanel buttonPanel;
+	protected JPanel topHUD;
+	protected JButton inventoryChoice, blacksmithChoice, jobsChoice;
+	protected JLabel importantMessages, topHUDinfo;
+	protected Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
+	protected Color newOrange = new Color(255, 153, 51);
+	private String userName;
+	private int energy;
 	
 	
 	public static void setUIFont (javax.swing.plaf.FontUIResource f){
@@ -30,9 +32,12 @@ public class villageMainMenu {
 	
 	public static void main(String[] args) {
 		
+		
+		new villageStart();
 		new villageMainMenu();
 		
 	}
+	
 	
 	public villageMainMenu() {
 
@@ -88,4 +93,9 @@ public class villageMainMenu {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+	public void villageStartBtnHandler() {
+		
+	}
+	
 }
