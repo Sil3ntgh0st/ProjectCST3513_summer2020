@@ -4,12 +4,13 @@ import java.lang.Math;
 
 public class NPC {
     
-   
-
+   //This is used to debug within the file itself. Please do not delete until final version.
+   /* public static void main(String[] args){
         //Debug
-        /*for(int i = 0; i < 101; i++){
+        for(int i = 0; i < 101; i++){
             Blacksmith();
-        }*/
+        }
+    }*/
 	
 
     public static void Villager(){
