@@ -21,20 +21,20 @@ public class Player extends T1Item{                      // superclass is T1Item
     
     public Player(){
     	
-        this.userEnergyLevel = 0;
+        Player.userEnergyLevel = 0;
         this.HungerLevel = 50;
-        this.userName = "";
+        Player.userName = "";
         System.out.println("Player!");
     }
     
     public Player(String userName) {
-    	this.userName = userName;
+    	Player.userName = userName;
     	
     }
     
     public void setuserName(String userName){
         
-        this.userName = userName;         //instead of this we could use the class name because of static.
+        Player.userName = userName;         //instead of this we could use the class name because of static.
         
     }
     

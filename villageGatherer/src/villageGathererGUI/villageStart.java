@@ -60,9 +60,8 @@ public class villageStart extends villageMainMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				UIManager UI=new UIManager();
-				UI.put("OptionPane.background", newOrange);
-				UI.put("Panel.background", Color.black);
+				UIManager.put("OptionPane.background", newOrange);
+				UIManager.put("Panel.background", Color.black);
 				
 				Player.userName = usernameInput.getText();
 				villageMainMenu newWindow = new villageMainMenu();				
@@ -70,10 +69,10 @@ public class villageStart extends villageMainMenu {
 				frame.setVisible(false);
 				
 				Player createdPlayer = new Player(usernameInput.getText());
-				System.out.println("successfully created->" + createdPlayer.userName);
+				System.out.println("successfully created->" + Player.userName);
 				
 				JFrame f = new JFrame();
-				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + createdPlayer.userName + " was created::</html>");
+				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + Player.userName + " was created::</html>");
 				alert.setForeground(Color.white);
 				JOptionPane.showMessageDialog(f, alert, "Congratulations", JOptionPane.OK_CANCEL_OPTION);
 				
