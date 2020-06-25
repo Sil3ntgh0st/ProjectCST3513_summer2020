@@ -55,7 +55,7 @@ public class villageMainMenu {
 		topHUD.setBackground(Color.black);
 		
 		importantMessages = new JLabel("What would you like to do today?");
-		topHUDinfo = new JLabel("Username:  " + Player.userName + " Energy: ");
+		topHUDinfo = new JLabel("Username:  " + Player.userName + " Energy: "+Player.userEnergyLevel);
 		topHUDinfo.setForeground(newOrange);
 		
 		
