@@ -26,7 +26,7 @@ public class blackSmith extends villageMainMenu {
 		topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
-		topHUDinfo = new JLabel("Username:  " + Player.userName +" Energy: ");
+		topHUDinfo = new JLabel("Username:  " + Player.userName +" Energy: "+Player.userEnergyLevel);
 		topHUDinfo.setForeground(newOrange);
 		
 		infoFrame = new JPanel();
