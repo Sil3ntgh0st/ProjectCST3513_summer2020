@@ -17,7 +17,8 @@ public class villageMainMenu {
 	protected JLabel importantMessages, topHUDinfo;
 	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
 	public Color newOrange = new Color(255, 153, 51);
-	private String userName, location;
+	private String location;
+	public static String userName;
 	private int energy;
 	
 	
@@ -38,6 +39,7 @@ public class villageMainMenu {
 		
 	}
 	
+	
 	public villageMainMenu() {
 
 		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
@@ -52,7 +54,7 @@ public class villageMainMenu {
 		topHUD.setBackground(Color.black);
 		
 		importantMessages = new JLabel("What would you like to do today?");
-		topHUDinfo = new JLabel("Username:  " + " Energy: ");
+		topHUDinfo = new JLabel("Username:  " + userName + " Energy: ");
 		topHUDinfo.setForeground(newOrange);
 		
 		

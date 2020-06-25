@@ -1,4 +1,5 @@
 package villageGathererGUI;
+import villageGathererClasses.Player;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +29,7 @@ public class villageStart extends villageMainMenu {
 		c.fill = GridBagConstraints.HORIZONTAL;
 
 	
-		importantMessages = new JLabel("<html>Welcome to your Village<br/><br>" + "\n Enter your username" + "</html>");
+		importantMessages = new JLabel("<html>Welcome to your Village<br/><br/>" + "\n Enter your username" + "</html>");
 		c.gridx=0;
 		c.gridwidth = 2;
 		c.gridy= 0;
@@ -58,13 +59,25 @@ public class villageStart extends villageMainMenu {
 		startGame.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				villageMainMenu newWindow = new villageMainMenu();
 				
+				UIManager UI=new UIManager();
+				UI.put("OptionPane.background", newOrange);
+				UI.put("Panel.background", Color.black);
+				
+				villageMainMenu.userName = usernameInput.getText();
+				villageMainMenu newWindow = new villageMainMenu();				
 				newWindow.frame.setVisible(true);
 				frame.setVisible(false);
-			}
+				
+				Player createdPlayer = new Player(usernameInput.getText());
+				System.out.println("successfully created->" + createdPlayer.userName);
+				
+				JFrame f = new JFrame();
+				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + createdPlayer.userName + " was created::</html>");
+				alert.setForeground(Color.white);
+				JOptionPane.showMessageDialog(f, alert, "Congratulations", JOptionPane.OK_CANCEL_OPTION);				
+			}	
 		});
-
 		con.add(titleFrame);
 		con.add(buttonPanel);
 		

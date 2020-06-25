@@ -13,18 +13,23 @@ public class Player extends T1Item{                      // superclass is T1Item
     
     public String[] endMessage;
     private int playerIteamCount;
-    private static String  userName;
+    public String  userName;
     private int userEnergyLevel; 
     private int HungerLevel = 100;               // maybe we need this one the UMI 
 
                                                     
     
-    Player(){
+    public Player(){
     	
         this.userEnergyLevel = 0;
         this.HungerLevel = 50;
         this.userName = "";
         System.out.println("Player!");
+    }
+    
+    public Player(String userName) {
+    	this.userName = userName;
+    	
     }
     
     public void setuserName(String userName){
