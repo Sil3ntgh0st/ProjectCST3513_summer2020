@@ -1,5 +1,4 @@
 package villageGathererGUI;
-import villageGathererGUI.forestRoom;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +30,6 @@ public class villageMainMenu {
 	        UIManager.put (key, f);
 	      }
 	    } 
-
 	
 	public static void main(String[] args) {
 		
@@ -39,7 +37,6 @@ public class villageMainMenu {
 		new villageStart();
 		
 	}
-	
 	
 	public villageMainMenu() {
 
@@ -107,5 +104,7 @@ public class villageMainMenu {
 		frame.pack();
 		frame.setVisible(false);
 	}
+	
+
 	
 }

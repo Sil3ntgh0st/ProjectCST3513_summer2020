@@ -4,15 +4,13 @@ import java.lang.Math;
 
 public class NPC {
     
-    public static void main(String args[]){
+   
 
         //Debug
         /*for(int i = 0; i < 101; i++){
             Blacksmith();
         }*/
-
-
-    }
+	
 
     public static void Villager(){
 

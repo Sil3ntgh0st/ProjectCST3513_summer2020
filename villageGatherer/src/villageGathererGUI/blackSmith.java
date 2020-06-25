@@ -12,6 +12,7 @@ public class blackSmith extends villageMainMenu {
 	private JButton goBack, search;
 	private JLabel importantMessages, topHUDinfo;
 	
+	
 	public blackSmith() {
 		
 		frame = new JFrame("Welcome to the Blacksmith");

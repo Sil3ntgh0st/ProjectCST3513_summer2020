@@ -1,10 +1,20 @@
 package villageGathererClasses;
+import java.util.*;
+import java.util.stream.IntStream;
+import java.math.*;
 
 
 public class T1Item {
 	
-	int count;
+	int count, stickCount, stoneCount;
 	String description;
+	
+	public T1Item(){
+		this.count = 0;
+		this.stickCount = 0;
+		this.stoneCount = 0;
+		description = "";
+	}
 	
 
 	public void setCount(int a) {
@@ -13,6 +23,23 @@ public class T1Item {
 	
 	public void pickUp(T1Item a) {
 		a.setCount(a.getCount()+1);
+	}
+	
+	public void giveItem() { //meant to give you either a stick or stone
+		Random rand = new Random();
+		int totalSum = 0;
+		int decision = rand.nextInt(1000);
+		
+		if(decision % 2 != 0 ) {
+			stickCount++;
+			description = "You gained a Stick";
+		}
+		else {
+			stoneCount++;
+			description = "You gained a Stone";
+			
+		}
+		
 	}
 	
 	public int getCount() {
