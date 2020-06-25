@@ -13,11 +13,11 @@ public class Player extends T1Item{                      // superclass is T1Item
     
     public String[] endMessage;
     private int playerIteamCount;
-    public String  userName;
-    private int userEnergyLevel; 
+    public static String  userName;
+    public static int userEnergyLevel; 
     private int HungerLevel = 100;               // maybe we need this one the UMI 
 
-                                                    
+                                              
     
     public Player(){
     	
@@ -66,8 +66,8 @@ public class Player extends T1Item{                      // superclass is T1Item
     
     public boolean hasIteam(T1Item a){
           int b = 0;
-          for (int i = 0 ; i< userEnegery;i++)
-          if (a.getDescription()==endMeassage[userEnergyLevel]){
+          for (int i = 0 ; i<userEnergyLevel;i++)
+          if (a.getDescription()==endMessage[userEnergyLevel]){
               b=0;
               
           }

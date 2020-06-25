@@ -1,5 +1,8 @@
 package villageGathererGUI;
 import javax.swing.*;
+
+import villageGathererClasses.Player;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,8 +21,6 @@ public class villageMainMenu {
 	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
 	public Color newOrange = new Color(255, 153, 51);
 	private String location;
-	public static String userName;
-	private int energy;
 	
 	
 	public static void setUIFont (javax.swing.plaf.FontUIResource f){
@@ -54,7 +55,7 @@ public class villageMainMenu {
 		topHUD.setBackground(Color.black);
 		
 		importantMessages = new JLabel("What would you like to do today?");
-		topHUDinfo = new JLabel("Username:  " + userName + " Energy: ");
+		topHUDinfo = new JLabel("Username:  " + Player.userName + " Energy: ");
 		topHUDinfo.setForeground(newOrange);
 		
 		

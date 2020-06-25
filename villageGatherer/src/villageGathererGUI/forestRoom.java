@@ -1,4 +1,6 @@
 package villageGathererGUI;
+import villageGathererClasses.Player;
+import villageGathererClasses.T1Item;
 
 import java.awt.*;
 import java.awt.event.*;

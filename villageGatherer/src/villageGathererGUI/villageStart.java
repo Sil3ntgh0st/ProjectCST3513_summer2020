@@ -64,7 +64,7 @@ public class villageStart extends villageMainMenu {
 				UI.put("OptionPane.background", newOrange);
 				UI.put("Panel.background", Color.black);
 				
-				villageMainMenu.userName = usernameInput.getText();
+				Player.userName = usernameInput.getText();
 				villageMainMenu newWindow = new villageMainMenu();				
 				newWindow.frame.setVisible(true);
 				frame.setVisible(false);
@@ -75,7 +75,8 @@ public class villageStart extends villageMainMenu {
 				JFrame f = new JFrame();
 				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + createdPlayer.userName + " was created::</html>");
 				alert.setForeground(Color.white);
-				JOptionPane.showMessageDialog(f, alert, "Congratulations", JOptionPane.OK_CANCEL_OPTION);				
+				JOptionPane.showMessageDialog(f, alert, "Congratulations", JOptionPane.OK_CANCEL_OPTION);
+				
 			}	
 		});
 		con.add(titleFrame);
