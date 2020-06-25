@@ -1,4 +1,5 @@
 package villageGathererGUI;
+import villageGathererGUI.forestRoom;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,8 +16,8 @@ public class villageMainMenu {
 	protected JPanel topHUD;
 	protected JButton inventoryChoice, blacksmithChoice, jobsChoice;
 	protected JLabel importantMessages, topHUDinfo;
-	protected Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
-	protected Color newOrange = new Color(255, 153, 51);
+	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
+	public Color newOrange = new Color(255, 153, 51);
 	private String userName, location;
 	private int energy;
 	
@@ -48,11 +49,9 @@ public class villageMainMenu {
 		buttonPanel.setBackground(Color.black);
 		
 		textFrame = new JPanel();
-		textFrame.setBounds(100, 100, 300, 150);
 		textFrame.setBackground(newOrange);
 		
 		topHUD = new JPanel();
-		topHUD.setBounds(50, 50, 100, 100);
 		topHUD.setBackground(Color.black);
 		
 		importantMessages = new JLabel("What would you like to do today?");
@@ -78,12 +77,18 @@ public class villageMainMenu {
 		jobsChoice.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				villageMainMenu newWindow = new villageMainMenu();
-				
-				newWindow.frame.setVisible(true);
+				forestRoom forestWindow = new forestRoom();
+				forestWindow.frame.setVisible(true);
 			}
 		});
 		buttonPanel.add(blacksmithChoice);
+		blacksmithChoice.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				blackSmith blackSmithWindow = new blackSmith();
+				blackSmithWindow.frame.setVisible(true);
+			}
+		});
 		buttonPanel.add(inventoryChoice);
 		topHUD.add(topHUDinfo);
 		textFrame.add(importantMessages);

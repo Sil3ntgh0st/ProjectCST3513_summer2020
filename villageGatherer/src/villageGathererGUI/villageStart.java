@@ -15,11 +15,9 @@ public class villageStart extends villageMainMenu {
 	public villageStart() {
 		
 		buttonPanel = new JPanel();
-		buttonPanel.setBounds(300, 200, 200, 100);
 		buttonPanel.setBackground(Color.black);
 		
 		titleFrame = new JPanel();
-		titleFrame.setBounds(100, 100, 300, 150);
 		titleFrame.setBackground(newOrange);
 		titleFrame.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -63,6 +61,7 @@ public class villageStart extends villageMainMenu {
 				villageMainMenu newWindow = new villageMainMenu();
 				
 				newWindow.frame.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 
