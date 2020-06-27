@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package villageGathererBETA.src.villageGathererClasses;
-
-import villageGathererGUI.villageMainMenu;
+package villageGathererClasses;
 
 /**
  *
@@ -24,7 +22,7 @@ public class Player {                      // superclass is T1Item and it is sub
     public Player(){
     	
         userName = "";
-        Player.userEnergyLevel = 0;
+        userEnergyLevel = 100;
         this.HungerLevel = 50;
         System.out.println("Player with no name!");
     }
@@ -32,7 +30,7 @@ public class Player {                      // superclass is T1Item and it is sub
     public Player(String u) {
     	
     	userName = u;
-    	Player.userEnergyLevel = 0;
+    	userEnergyLevel = 100;
         this.HungerLevel = 50;
         System.out.println("Player new name!");
     	
@@ -48,6 +46,12 @@ public class Player {                      // superclass is T1Item and it is sub
         
         return userName;
         
+    }
+    
+    public static int getEnergyLevel() {
+    	
+		return userEnergyLevel;
+    	
     }
     
     public void getHungerLevel(){

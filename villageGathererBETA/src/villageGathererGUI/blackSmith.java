@@ -1,5 +1,4 @@
-package villageGathererBETA.src.villageGathererGUI;
-import villageGathererBETA.src.villageGathererClasses.Player;
+import villageGathererClasses.Player;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -24,7 +23,7 @@ public class blackSmith extends villageMainMenu {
 		topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
-		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: ");
+		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.ORANGE);
 		
 		infoFrame = new JPanel();

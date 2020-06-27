@@ -1,4 +1,4 @@
-package villageGathererBETA.src.villageGathererClasses;
+package	villageGathererClasses;
 
 import java.lang.Math;
 

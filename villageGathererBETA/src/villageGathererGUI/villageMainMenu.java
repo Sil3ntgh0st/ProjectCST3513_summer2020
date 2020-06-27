@@ -1,13 +1,13 @@
-package villageGathererBETA.src.villageGathererGUI;
 import javax.swing.*;
-import villageGathererBETA.src.villageGathererClasses.Player;
+
+import villageGathererClasses.Player;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-
-public class villageMainMenu implements ActionListener {
+public class villageMainMenu {
 	
 	public JFrame frame;
 	public Container con;
@@ -116,7 +116,6 @@ public class villageMainMenu implements ActionListener {
 		Player cp = new Player(Player.userName);
 
 
-		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(300, 400, 200, 100);
 		buttonPanel.setBackground(Color.black);
@@ -128,7 +127,7 @@ public class villageMainMenu implements ActionListener {
 		topHUD.setBackground(Color.black);
 		
 		JLabel importantMessages = new JLabel("What would you like to do today?");
-		JLabel topHUDinfo = new JLabel("Username:  " + cp.getUserName() + " Energy: ");
+		JLabel topHUDinfo = new JLabel("Username:  " + cp.getUserName() + " Energy: " + cp.getEnergyLevel());
 		topHUDinfo.setForeground(Color.white);
 		
 		JButton jobsChoice = new JButton("Jobs");
@@ -183,14 +182,9 @@ public class villageMainMenu implements ActionListener {
 
 	public static void main(String[] args) {
 		
+		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
 		villageStart();
 		//createVillageMainMenu();
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
