@@ -1,5 +1,6 @@
-package villageGathererGUI;
-import villageGathererClasses.Player;
+package villageGathererBETA.src.villageGathererGUI;
+import villageGathererBETA.src.villageGathererClasses.Player;
+//import villageGathererClasses.Player;
 import villageGathererClasses.T1Item;
 
 import java.awt.*;
@@ -27,7 +28,7 @@ public class forestRoom extends villageMainMenu {
 		topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
-		topHUDinfo = new JLabel("Username:  " + " Energy: ");
+		topHUDinfo = new JLabel("Username: "+ Player.userName + " Energy: ");
 		topHUDinfo.setForeground(newOrange);
 		
 		infoFrame = new JPanel();

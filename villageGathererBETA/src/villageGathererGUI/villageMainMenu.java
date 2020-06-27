@@ -1,6 +1,6 @@
-package villageGathererGUI;
+package villageGathererBETA.src.villageGathererGUI;
 import javax.swing.*;
-import villageGathererClasses.Player;
+import villageGathererBETA.src.villageGathererClasses.Player;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +38,8 @@ public class villageMainMenu implements ActionListener {
 	    }
 	
 	public static void villageStart() {
+
+		boolean test;
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.black);
@@ -86,13 +88,14 @@ public class villageMainMenu implements ActionListener {
 				
 				UIManager.put("OptionPane.background", newOrange);
 				UIManager.put("Panel.background", Color.black);
-				
+				Player.userName = usernameInput.getText();
 				frame.setVisible(false);
+				createVillageMainMenu();
 				new Player(usernameInput.getText());
-				System.out.println("successfully created->" + Player.getUserName());
+				System.out.println("successfully created->" + Player.userName);
 				
 				JFrame f = new JFrame();
-				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + Player.getUserName() + " was created::</html>");
+				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + Player.userName + " was created::</html>");
 				alert.setForeground(Color.white);
 				JOptionPane.showMessageDialog(f, alert, "Congratulations", JOptionPane.OK_CANCEL_OPTION);
 			}	
@@ -110,6 +113,9 @@ public class villageMainMenu implements ActionListener {
 	
 	public static void createVillageMainMenu() {
 
+		Player cp = new Player(Player.userName);
+
+
 		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(300, 400, 200, 100);
@@ -122,7 +128,7 @@ public class villageMainMenu implements ActionListener {
 		topHUD.setBackground(Color.black);
 		
 		JLabel importantMessages = new JLabel("What would you like to do today?");
-		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: ");
+		JLabel topHUDinfo = new JLabel("Username:  " + cp.getUserName() + " Energy: ");
 		topHUDinfo.setForeground(Color.white);
 		
 		JButton jobsChoice = new JButton("Jobs");
@@ -171,13 +177,14 @@ public class villageMainMenu implements ActionListener {
 	
 		
 		frame.pack();
-		frame.setVisible(false);
+		frame.setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {
 		
 		villageStart();
-		createVillageMainMenu();
+		//createVillageMainMenu();
 		
 	}
 
