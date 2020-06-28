@@ -1,7 +1,5 @@
 import javax.swing.*;
-
-import villageGathererClasses.Player;
-
+//import villageGathererClasses.Player;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -161,6 +159,13 @@ public class villageMainMenu {
 			}
 		});
 		buttonPanel.add(inventoryChoice);
+		inventoryChoice.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				inventory inventoryWindow = new inventory();
+				inventoryWindow.frame.setVisible(true);
+			}
+		});
 		topHUD.add(topHUDinfo);
 		textFrame.add(importantMessages);
 		

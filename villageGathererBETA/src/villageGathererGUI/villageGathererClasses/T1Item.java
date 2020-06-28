@@ -1,29 +1,39 @@
-package villageGathererClasses;
+//package villageGathererClasses;
 import java.util.*;
-import java.util.stream.IntStream;
-import java.math.*;
 
 
 public class T1Item {
 	
 	int count, stickCount, stoneCount;
-	String description;
+	String description, item;
+	public static String itemListString;
+	public static ArrayList<String> itemList;
 	
 	public T1Item(){
-		this.count = 0;
-		this.stickCount = 0;
-		this.stoneCount = 0;
+		item = "";
+		count = 0;
+		stickCount = 0;
+		stoneCount = 0;
 		description = "";
+		System.out.println("No item made");
 	}
 	
-
+	public T1Item(String itemName){
+		this.item = itemName;
+		this.count ++;
+		this.description = "";
+		T1Item.itemList = new ArrayList<String>();
+		T1Item.itemList.add(itemName);
+		System.out.println(itemName + " was created");
+	}
+	
 	public void setCount(int a) {
 		count = a;
 	}
 	
-	public void pickUp(T1Item a) {
-		a.setCount(a.getCount()+1);
-	}
+//	public void pickUp(T1Item a) {
+//		a.setCount(a.getCount()+1);
+//	}
 	
 	public void giveItem() { //meant to give you either a stick or stone
 		Random rand = new Random();
@@ -32,11 +42,11 @@ public class T1Item {
 		
 		if(decision % 2 != 0 ) {
 			stickCount++;
-			description = "You gained a Stick";
+			System.out.println("You gained a Stick");
 		}
 		else {
 			stoneCount++;
-			description = "You gained a Stone";
+			System.out.println("You gained a Stone");
 			
 		}
 		
@@ -77,6 +87,17 @@ public class T1Item {
 				System.out.println("You can eat "+a[i].getDescription());
 			}
 		}
+	}
+
+	public static String getAllItems(ArrayList<String>[] a) {
+		
+		int count = 0;
+		
+		for (int i = 0; i < a.length ; i++ ) {
+			count++;	
+		} 
+		return "Your items are: " + itemList.get(count);
+		
 	}
 	
 	
