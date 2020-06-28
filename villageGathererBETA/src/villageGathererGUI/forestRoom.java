@@ -63,7 +63,7 @@ public class forestRoom extends villageMainMenu {
 					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 					System.out.println("You gained a Stick");
 					importantMessages.setText("You gained a Stick");
-					topHUDinfo.setText("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 					
 				}
 				else {
@@ -71,7 +71,7 @@ public class forestRoom extends villageMainMenu {
 					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 					System.out.println("You gained a Stone");
 					importantMessages.setText("You gained a Stone");
-					topHUDinfo.setText("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 				}
 				
 			}

@@ -186,6 +186,7 @@ public class villageMainMenu {
 			public void actionPerformed(ActionEvent e) {
 				blackSmith blackSmithWindow = new blackSmith();
 				blackSmithWindow.frame.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		buttonPanel.add(inventoryChoice);

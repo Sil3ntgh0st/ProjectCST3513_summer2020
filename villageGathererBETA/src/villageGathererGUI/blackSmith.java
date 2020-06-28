@@ -42,7 +42,7 @@ public class blackSmith extends villageMainMenu {
 		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones needed");
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
-		infoFrame2.add(BSchat);
+		//infoFrame2.add(BSchat);
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.black);
