@@ -8,18 +8,20 @@ import java.util.*;
 
 public class villageMainMenu {
 	
-	public JFrame frame;
-	public Container con;
+	public static JFrame frame;
+	public static Container con;
 	public JPanel titleFrame, textFrame;
 	public JPanel buttonPanel;
 	public JPanel topHUD;
 	public JButton inventoryChoice, blacksmithChoice, jobsChoice;
-	public JLabel importantMessages, topHUDinfo;
+	public JLabel importantMessages;
+	public static JLabel topHUDinfo;
 	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
 	public static Color newOrange = new Color(255, 153, 51);
 	public String location;
 	public JButton startGame;
 	public JTextField usernameInput;
+	public static String format = "Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel();
 	
 	
 	public villageMainMenu() {
@@ -87,10 +89,9 @@ public class villageMainMenu {
 				
 				UIManager.put("OptionPane.background", newOrange);
 				UIManager.put("Panel.background", Color.black);
-				Player.userName = usernameInput.getText();
 				frame.setVisible(false);
-				createVillageMainMenu();
 				new Player(usernameInput.getText());
+				createVillageMainMenu();
 				System.out.println("successfully created->" + Player.userName);
 				
 				JFrame f = new JFrame();
@@ -112,6 +113,12 @@ public class villageMainMenu {
 	
 	public static void createVillageMainMenu() {
 
+		JFrame frame = new JFrame("Village Gatherer Main Menu");
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new GridLayout(3,1));
+		Container con = frame.getContentPane();
+		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(300, 400, 200, 100);
 		buttonPanel.setBackground(Color.black);
@@ -123,7 +130,7 @@ public class villageMainMenu {
 		topHUD.setBackground(Color.black);
 		
 		JLabel importantMessages = new JLabel("What would you like to do today?");
-		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.userEnergyLevel);
+		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.white);
 		
 		JButton jobsChoice = new JButton("Jobs");
@@ -146,6 +153,8 @@ public class villageMainMenu {
 			public void actionPerformed(ActionEvent e) {
 				forestRoom forestWindow = new forestRoom();
 				forestWindow.frame.setVisible(true);
+				frame.setVisible(false);
+				topHUDinfo.setText("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 			}
 		});
 		buttonPanel.add(blacksmithChoice);
@@ -164,14 +173,10 @@ public class villageMainMenu {
 				inventoryWindow.frame.setVisible(true);
 			}
 		});
+		
 		topHUD.add(topHUDinfo);
 		textFrame.add(importantMessages);
 		
-		JFrame frame = new JFrame("Village Gatherer Main Menu");
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(3,1));
-		Container con = frame.getContentPane();
 		
 		con.add(topHUD);
 		con.add(textFrame);
