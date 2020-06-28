@@ -4,7 +4,9 @@ import java.util.*;
 
 public class T1Item {
 	
-	public int count, stickCount, stoneCount;
+	public int count;
+	public static int stickCount;
+	public static int stoneCount;
 	public String description, item;
 	public static String[] itemListString;
 	public static ArrayList<String> itemList = new ArrayList<>();
@@ -23,33 +25,30 @@ public class T1Item {
 		this.count ++;
 		this.description = "";
 		T1Item.itemList.add(itemName);
+		if(itemName == "Stick") {
+			stickCount++;
+		}
+		else if (itemName == "Stone") {
+			stoneCount++;
+		}
 		System.out.println(itemName + " was created");
+	}
+	
+	public boolean isStick() {
+		if(this.item == "Stick") {
+			return true;
+		}
+		return false;
 	}
 	
 	public void setCount(int a) {
 		count = a;
 	}
 	
+	
 //	public void pickUp(T1Item a) {
 //		a.setCount(a.getCount()+1);
 //	}
-	
-	public void giveItem() { //meant to give you either a stick or stone
-		Random rand = new Random();
-		int totalSum = 0;
-		int decision = rand.nextInt(1000);
-		
-		if(decision % 2 != 0 ) {
-			stickCount++;
-			System.out.println("You gained a Stick");
-		}
-		else {
-			stoneCount++;
-			System.out.println("You gained a Stone");
-			
-		}
-		
-	}
 	
 	public int getCount() {
 		return count;
@@ -67,7 +66,9 @@ public class T1Item {
 		boolean hasItem = false;
 		if (a.count>0) {
 			hasItem = true;
-		}return hasItem;
+		}
+		return hasItem;
+		
 	}
 	
 	public void craft(T1Item a, T1Item b, T1Item c) {		

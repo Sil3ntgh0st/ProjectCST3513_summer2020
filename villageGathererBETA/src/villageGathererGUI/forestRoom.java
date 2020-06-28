@@ -3,6 +3,8 @@ import villageGathererClasses.T1Item;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
+
 import javax.swing.*;
 
 public class forestRoom extends villageMainMenu {
@@ -53,10 +55,20 @@ public class forestRoom extends villageMainMenu {
 		search.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//giveItem() goes here ---> Make sure giveItem will give either sticks or stones
-				/*getDescription() goes here --> Should have a way to be added 
-				 * to "importantMessages somehow)
-				 */
+				
+				Random rand = new Random();
+				int totalSum = 0;
+				int decision = rand.nextInt(1000);
+				
+				if(decision % 2 != 0 ) {
+					T1Item sticks = new T1Item("Stick");
+					System.out.println("You gained a Stick");
+				}
+				else {
+					T1Item stones = new T1Item("Stone");
+					System.out.println("You gained a Stone");
+				}
+				
 			}
 		});
 		
