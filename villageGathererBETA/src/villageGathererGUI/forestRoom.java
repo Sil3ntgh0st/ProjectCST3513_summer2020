@@ -62,11 +62,16 @@ public class forestRoom extends villageMainMenu {
 				
 				if(decision % 2 != 0 ) {
 					T1Item sticks = new T1Item("Stick");
+					Player.userEnergyLevel-= 5;
 					System.out.println("You gained a Stick");
+					importantMessages.setText("You gained a Stick");
+					
 				}
 				else {
 					T1Item stones = new T1Item("Stone");
+					Player.userEnergyLevel-= 5;
 					System.out.println("You gained a Stone");
+					importantMessages.setText("You gained a Stone");
 				}
 				
 			}

@@ -112,9 +112,6 @@ public class villageMainMenu {
 	
 	public static void createVillageMainMenu() {
 
-		Player cp = new Player(Player.userName);
-
-
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(300, 400, 200, 100);
 		buttonPanel.setBackground(Color.black);
@@ -126,7 +123,7 @@ public class villageMainMenu {
 		topHUD.setBackground(Color.black);
 		
 		JLabel importantMessages = new JLabel("What would you like to do today?");
-		JLabel topHUDinfo = new JLabel("Username:  " + cp.getUserName() + " Energy: " + cp.getEnergyLevel());
+		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.userEnergyLevel);
 		topHUDinfo.setForeground(Color.white);
 		
 		JButton jobsChoice = new JButton("Jobs");

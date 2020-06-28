@@ -14,7 +14,7 @@ public class Player {                      // superclass is T1Item and it is sub
     public String[] endMessage;
     private int playerItemCount;
     public static String userName;
-    public static int userEnergyLevel; 
+    public static int userEnergyLevel = 100; 
     private int HungerLevel = 100;               // maybe we need this one the UMI 
 
                                               
