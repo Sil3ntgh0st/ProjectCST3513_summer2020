@@ -25,6 +25,8 @@ public class T1Item {
 		this.count ++;
 		this.description = "";
 		T1Item.itemList.add(itemName);
+//		or switch case can be used here for multiple items, 
+//		or even a loop of items can be placed here
 		if(itemName == "Stick") {
 			stickCount++;
 		}

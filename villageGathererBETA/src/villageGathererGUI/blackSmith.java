@@ -6,10 +6,18 @@ import javax.swing.*;
 public class blackSmith extends villageMainMenu {
 	
 	public JFrame frame;
-	private Container con;
-	private JPanel buttonPanel, infoFrame,topHUD;
-	private JButton goBack, search;
-	private JLabel importantMessages, topHUDinfo;
+	public Container con;
+	public JPanel buttonPanel, infoFrame,topHUD;
+	public JButton goBack, Combine;
+	public JLabel importantMessages, topHUDinfo, blackSmithChoices ;
+	public JComboBox blackSmithItems;
+	private Button btnCountUp;
+	private Button btnCountDown;
+	private Button btnReset;
+	private JPanel quantityBar;
+	public TextField tfCount;
+	private String[] blackSmithItemOptions = {"Axe", "Hammer", "Fishing Rod"};
+	private JPanel infoFrame2;
 	
 	
 	public blackSmith() {
@@ -17,7 +25,7 @@ public class blackSmith extends villageMainMenu {
 		frame = new JFrame("Welcome to the Blacksmith");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(4,1));
+		frame.setLayout(new GridLayout(5,1));
 		con = frame.getContentPane();
 		
 		topHUD = new JPanel();
@@ -25,34 +33,81 @@ public class blackSmith extends villageMainMenu {
 		
 		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.ORANGE);
+		topHUD.add(topHUDinfo);
+		
+		infoFrame2 = new JPanel();
+		infoFrame2.setBackground(Color.black);
+		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones"
+				   + " needed");
+		importantMessages.setForeground(Color.white);
+		infoFrame2.add(importantMessages);
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.black);
-		importantMessages = new JLabel("Important Alerts Go Here");
-		importantMessages.setForeground(Color.white);
+		blackSmithChoices = new JLabel("Blacksmith items:");
+		blackSmithItems = new JComboBox(blackSmithItemOptions);
+		infoFrame.add(blackSmithChoices);
+		infoFrame.add(blackSmithItems);
 		
-		topHUD.add(topHUDinfo);
-		infoFrame.add(importantMessages);
+		
+		quantityBar = new JPanel();
+		quantityBar.setBackground(Color.gray);
+		quantityBar.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		c.weightx = 1;
+		c.weighty = 1;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		
+        tfCount = new TextField("0", 2);
+        tfCount.setEditable(false);
+		c.gridx=1;
+		c.gridwidth = 1;
+		c.gridy= 0;
+		quantityBar.add(tfCount, c);
+		
+		btnCountUp = new Button("+");
+		c.gridx=2;
+		c.gridwidth = 1;
+		c.gridy= 0;
+		quantityBar.add(btnCountUp, c);
+		
+        btnCountDown = new Button("-");
+		c.gridx=4;
+		c.gridwidth = 1;
+		c.gridy= 0;
+		quantityBar.add(btnCountDown, c);
+
+        btnReset = new Button("Reset");
+		c.gridx=6;
+		c.gridwidth = 2;
+		c.gridy= 0;
+		quantityBar.add(btnReset, c);
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.black);
 		
-		search = new JButton("Combine");
+		Combine = new JButton("Combine");
 		goBack = new JButton("Go Back");
 		
-		buttonPanel.add(search);
+		buttonPanel.add(Combine);
 		buttonPanel.add(goBack);
 		frame.add(topHUD);
+		frame.add(infoFrame2);
 		frame.add(infoFrame);
+		frame.add(quantityBar);
 		frame.add(buttonPanel);
 		
-		search.addActionListener(new ActionListener() {
+
+		
+	    BtnListener listener = new BtnListener();
+	    btnCountUp.addActionListener(listener);
+	    btnCountDown.addActionListener(listener);
+	    btnReset.addActionListener(listener);
+		
+		Combine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//giveItem() goes here ---> Make sure giveItem will give either sticks or stones
-				/*getDescription() goes here --> Should have a way to be added 
-				 * to "importantMessages somehow)
-				 */
+				
 			}
 		});
 		
@@ -60,10 +115,32 @@ public class blackSmith extends villageMainMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				
+				createVillageMainMenu();
 			}
 		});
 		
 		frame.pack();
 	}
+	
+	   private class BtnListener implements ActionListener {
+		      private int count;
+
+			@Override
+		      public void actionPerformed(ActionEvent evt) {
+		         // Need to determine which button has fired the event.
+		         Button source = (Button)evt.getSource();
+		               // Get a reference of the source that has fired the event.
+		               // getSource() returns a java.lang.Object. Downcast back to Button.
+		         if (source == btnCountUp) {
+		            ++count;
+		         } else if (source == btnCountDown) {
+		            --count;
+		         } else {
+		            count = 0;
+		         }
+		         tfCount.setText(count + "");
+		      }
+		   }
 
 }
