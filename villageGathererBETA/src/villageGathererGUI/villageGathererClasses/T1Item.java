@@ -1,13 +1,13 @@
-//package villageGathererClasses;
+package villageGathererClasses;
 import java.util.*;
 
 
 public class T1Item {
 	
-	int count, stickCount, stoneCount;
-	String description, item;
-	public static String itemListString;
-	public static ArrayList<String> itemList;
+	public int count, stickCount, stoneCount;
+	public String description, item;
+	public static String[] itemListString;
+	public static ArrayList<String> itemList = new ArrayList<>();
 	
 	public T1Item(){
 		item = "";
@@ -22,7 +22,6 @@ public class T1Item {
 		this.item = itemName;
 		this.count ++;
 		this.description = "";
-		T1Item.itemList = new ArrayList<String>();
 		T1Item.itemList.add(itemName);
 		System.out.println(itemName + " was created");
 	}
@@ -89,19 +88,24 @@ public class T1Item {
 		}
 	}
 
-	public static String getAllItems(ArrayList<String>[] a) {
+//	public static String getAllItems(ArrayList<String>[] a) {
+//		
+//		int count = 0;
+//		
+//		for (int i = 0; i < a.length ; i++ ) {
+//			count++;	
+//		} 
+//		return "Your items are: " + itemList.get(count);
+//		
+//	}
+	
+	public static Integer allItemsSize() {
 		
-		int count = 0;
+		int temp = 0;
 		
-		for (int i = 0; i < a.length ; i++ ) {
-			count++;	
-		} 
-		return "Your items are: " + itemList.get(count);
+		temp = itemList.size();
 		
+		return temp;
 	}
 	
-	
-	
-	
-
 }

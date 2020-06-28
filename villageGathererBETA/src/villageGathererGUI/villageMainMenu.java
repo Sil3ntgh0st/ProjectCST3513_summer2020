@@ -1,5 +1,6 @@
 import javax.swing.*;
-//import villageGathererClasses.Player;
+import villageGathererClasses.Player;
+import villageGathererClasses.T1Item;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

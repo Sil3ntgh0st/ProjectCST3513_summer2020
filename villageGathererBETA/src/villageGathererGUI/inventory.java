@@ -2,8 +2,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-//import villageGathererClasses.Player;
-//import villageGathererClasses.T1Item;
+import villageGathererClasses.Player;
+import villageGathererClasses.T1Item;
 
 public class inventory extends villageMainMenu {
 	
@@ -14,6 +14,8 @@ public class inventory extends villageMainMenu {
 	public JPanel topHUD;
 	public JButton goBack, search;
 	public JLabel importantMessages, topHUDinfo;
+	public int itemListSize = T1Item.allItemsSize();
+	
 	
 	public inventory() {
 	
@@ -33,8 +35,11 @@ public class inventory extends villageMainMenu {
 	infoFrame.setBackground(Color.gray);
 	importantMessages = new JLabel();
 	
-	for (int i = 0; i < T1Item.itemList.size(); i++) {
-	importantMessages.setText(T1Item.itemList.get(i));
+	if(itemListSize != 0) {
+		for (int i = 0; i < itemListSize; i++) {
+			
+			importantMessages.setText(T1Item.itemList.get(i));
+			}
 	}
 	
 	topHUD.add(topHUDinfo);
