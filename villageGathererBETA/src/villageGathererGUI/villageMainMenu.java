@@ -4,6 +4,11 @@ import villageGathererClasses.T1Item;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.*;
 
 public class villageMainMenu {
@@ -13,7 +18,7 @@ public class villageMainMenu {
 	public JPanel titleFrame, textFrame;
 	public JPanel buttonPanel;
 	public JPanel topHUD;
-	public JButton inventoryChoice, blacksmithChoice, jobsChoice;
+	public JButton inventoryChoice, blacksmithChoice, jobsChoice, LoadData;
 	public JLabel importantMessages;
 	public static JLabel topHUDinfo;
 	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
@@ -41,6 +46,8 @@ public class villageMainMenu {
 	public static void villageStart() {
 
 		boolean test;
+
+		
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.black);
@@ -82,6 +89,16 @@ public class villageMainMenu {
 		Container con = frame.getContentPane();
 		
 		buttonPanel.add(startGame);
+		JButton LoadData = new JButton("Load");
+
+		buttonPanel.add(LoadData);
+		LoadData.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				villageload();
+				frame.setVisible(false);
+			}
+		});
 		
 		startGame.addActionListener(new ActionListener() {
 			@Override
@@ -93,7 +110,6 @@ public class villageMainMenu {
 				new Player(usernameInput.getText());
 				createVillageMainMenu();
 				System.out.println("successfully created->" + Player.userName);
-				
 				JFrame f = new JFrame();
 				JLabel alert = new JLabel("<html>:::Your new character::: <br/>:::" + Player.userName + " was created::</html>");
 				alert.setForeground(Color.white);
@@ -112,6 +128,8 @@ public class villageMainMenu {
 	
 	
 	public static void createVillageMainMenu() {
+
+		//System.out.println(new File(".").getAbsoluteFile()); //Find location of where villageMainMenu reads files from
 
 		JFrame frame = new JFrame("Village Gatherer Main Menu");
 		frame.setLocationRelativeTo(null);
@@ -145,6 +163,11 @@ public class villageMainMenu {
 		JButton inventoryChoice = new JButton("Inventory");		
 		inventoryChoice.setBackground(Color.black);
 		inventoryChoice.setForeground(newOrange);
+
+		JButton saveChoice = new JButton("Save");
+		saveChoice.setBackground(Color.black);
+		saveChoice.setForeground(newOrange);
+
 		
 		
 		buttonPanel.add(jobsChoice);
@@ -173,6 +196,13 @@ public class villageMainMenu {
 				inventoryWindow.frame.setVisible(true);
 			}
 		});
+		buttonPanel.add(saveChoice);
+		saveChoice.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				villageSave();
+			}
+		});
 		
 		topHUD.add(topHUDinfo);
 		textFrame.add(importantMessages);
@@ -186,6 +216,55 @@ public class villageMainMenu {
 		frame.pack();
 		frame.setVisible(true);
 		
+	}
+
+	public static void villageSave(){
+
+		try{
+			BufferedWriter save = new BufferedWriter(new FileWriter("villageGathererBETA\\src\\villageGathererGUI\\Save\\Save.txt"));
+
+			//If we need to add more variables, just add save.newLine(); and then save.write(""+intVar) or save.write(stringVar)
+			save.write(Player.userName);
+			save.newLine();
+			save.write(""+Player.userEnergyLevel);
+			save.newLine();
+			save.write(""+T1Item.stickCount);
+			save.newLine();
+			save.write(""+T1Item.stoneCount);
+
+			save.close();
+		}
+		catch(Exception ex){
+
+		}
+		//This is a little prompt to make sure save works.
+		JFrame f = new JFrame();
+				JLabel alert = new JLabel("<html>::Progress has been saved!::</html>");
+				alert.setForeground(Color.black);
+				JOptionPane.showMessageDialog(f, alert, "", JOptionPane.OK_CANCEL_OPTION);
+
+	}
+	public static void villageload(){
+		try{
+			BufferedReader load = new BufferedReader(new FileReader("villageGathererBETA\\src\\villageGathererGUI\\Save\\Save.txt"));
+																	//Line 247| Line 224 might have to change depending on programmer.
+
+			//Load is a lot easier, just add the variable you want to load and follow the idea below. 
+			//ORDER HAS TO BE THE SAME AS villageSave()
+			Player.userName = load.readLine();
+			Player.userEnergyLevel = Integer.parseInt(load.readLine());
+			T1Item.stickCount = Integer.parseInt(load.readLine());
+			T1Item.stoneCount = Integer.parseInt(load.readLine());
+			load.close();
+		}
+		catch(Exception ex){
+
+		}
+		//frame.setVisible(false);
+		//createVillageMainMenu();
+		//System.out.println(Player.userName); //Debug
+		//System.out.println(Player.userEnergyLevel); //Debug
+		createVillageMainMenu();
 	}
 
 	public static void main(String[] args) {

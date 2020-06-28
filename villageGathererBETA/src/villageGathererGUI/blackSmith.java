@@ -1,3 +1,4 @@
+import villageGathererClasses.NPC;
 import villageGathererClasses.Player;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +10,7 @@ public class blackSmith extends villageMainMenu {
 	public Container con;
 	public JPanel buttonPanel, infoFrame,topHUD;
 	public JButton goBack, Combine;
-	public JLabel importantMessages, topHUDinfo, blackSmithChoices ;
+	public JLabel importantMessages, topHUDinfo, blackSmithChoices, BSchat;
 	public JComboBox blackSmithItems;
 	private Button btnCountUp;
 	private Button btnCountDown;
@@ -37,10 +38,11 @@ public class blackSmith extends villageMainMenu {
 		
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
-		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones"
-				   + " needed");
+		//BSchat = new JLabel(NPC.Blacksmith); // I was trying to make a dialog box work - Patrick
+		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones needed");
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
+		infoFrame2.add(BSchat);
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.black);
