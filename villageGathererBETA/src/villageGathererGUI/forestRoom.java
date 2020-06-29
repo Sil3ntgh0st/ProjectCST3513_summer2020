@@ -58,20 +58,26 @@ public class forestRoom extends villageMainMenu {
 				Random rand = new Random();
 				int decision = rand.nextInt(1000);
 				
-				if(decision % 2 != 0 ) {
-					T1Item sticks = new T1Item("Stick");
-					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
-					System.out.println("You gained a Stick");
-					importantMessages.setText("You gained a Stick");
-					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
-					
+				if(Player.userEnergyLevel != 0){
+					if(decision % 2 != 0 ) {
+						T1Item sticks = new T1Item("Stick");
+						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
+						System.out.println("You gained a Stick");
+						importantMessages.setText("You gained a Stick");
+						topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+	
+					}
+					else {
+						T1Item stones = new T1Item("Stone");
+						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
+						System.out.println("You gained a Stone");
+						importantMessages.setText("You gained a Stone");
+						topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+					}
 				}
 				else {
-					T1Item stones = new T1Item("Stone");
-					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
-					System.out.println("You gained a Stone");
-					importantMessages.setText("You gained a Stone");
-					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+					System.out.println("Need more energy!");
+					importantMessages.setText("Need more energy!");
 				}
 				
 			}
