@@ -124,8 +124,10 @@ public class blackSmith extends villageMainMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				T1Item sticks = new T1Item("Stick"); //Adds a stick to the player
-				T1Item stones = new T1Item("Stones"); //Adds a stone to the player
+//				T1Item sticks = new T1Item(); //Adds a stick to the player
+//				T1Item stones = new T1Item(); //Adds a stone to the player
+				int sticks = T1Item.getStickCount();
+				int stones = T1Item.getStoneCount();
 				T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
 				T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)

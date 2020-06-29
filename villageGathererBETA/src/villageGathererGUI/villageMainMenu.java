@@ -134,8 +134,6 @@ public class villageMainMenu {
 	
 	
 	public static void createVillageMainMenu() {
-
-		new T1Item("null");
 		
 
 		//System.out.println(new File(".").getAbsoluteFile()); //Find location of where villageMainMenu reads files from
@@ -283,6 +281,7 @@ public class villageMainMenu {
 		//System.out.println(Player.userName); //Debug
 		//System.out.println(Player.userEnergyLevel); //Debug
 		createVillageMainMenu();
+		new T1Item("null");
 	}
 
 	public static void main(String[] args) {
