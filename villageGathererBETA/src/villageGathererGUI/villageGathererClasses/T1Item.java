@@ -8,6 +8,7 @@ public class T1Item {
 	public static int stickCount;
 	public static int stoneCount;
 	public static int axeCount;
+	public static int fishCount;
 	public String description, item;
 	public static String[] itemListString;
 	public static ArrayList<String> itemList = new ArrayList<>();
@@ -17,6 +18,7 @@ public class T1Item {
 		count = 0;
 		stickCount = 0;
 		stoneCount = 0;
+		fishCount = 0;
 		description = "";
 		System.out.println("No item made");
 	}
@@ -33,6 +35,9 @@ public class T1Item {
 		}
 		else if (itemName == "Stone") {
 			stoneCount++;
+		}
+		else if (itemName == "Fish") {
+			fishCount++;
 		}
 		System.out.println(itemName + " was created");
 	}
@@ -90,16 +95,23 @@ public class T1Item {
 		c.setCount(c.getCount()+1);	
 	}
 	
-	public void eat(T1Item a) {
-		a.setCount(a.getCount()-1);
+	
+	public static void eat(T1Item b) {
+		if(b.item == "Fish") {
+		fishCount -=1;
+		Player.addEnergyLevel();
+		}
 	}
 	
-	public static void canEat(T1Item [] a) {
-		for (int i=0; i<a.length; i++) {
-			if(a[i].getCount()>0) {
-				System.out.println("You can eat "+a[i].getDescription());
+	public static boolean canEat(String a) {
+		if (a == "Fish"){
+			if(fishCount >=1){
+				return true;
+			}else{
+				return false;
 			}
 		}
+		return false;
 	}
 
 	public static boolean getRequirements(String a){
