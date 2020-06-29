@@ -5,28 +5,28 @@ import java.lang.Math;
 public class NPC {
 	
 
-    public void Villager(){
+    public static String Villager(){
 
-        int randy = ((int)Math.random() * 5);
+        int randy = ((int)(Math.random() * 5));
 
         switch (randy){
             case 0:
-            //String x ="Good day!";
-            //return x;
+            String x ="<html>Good day "+Player.userName+"!<br/></html>";
+            return x;
             case 1:
-            //System.out.println("Did you know there's a blacksmith in town? He's located further up the road!");
-            //return Player.blacksmith = true;
-            break;
+            x = "<html>Did you know there's a blacksmith in town? He's located further up the road!<br/></html>";
+            return x;
             case 2:
-            System.out.println("This weather we're having is great, isn't it?");
-            break;
+            x = "<html>This weather we're having is great, isn't it?<br/></html>";
+            return x;
             case 3:
-            System.out.println("Hi! I'm a villager here, what do you do?");
+            x = "<html>Hi! I'm a villager here, what do you do?<br/></html>";
+            return x;
             case 4:
-            System.out.println("Hey, did you know that we're surrounded by forests?");
-            System.out.println("If you go out, you can gather sticks and stones there.");
-            break;
+            x= "<html>Hey, did you know that we're surrounded by forests?<br/>If you go out, you can gather sticks and stones there.<br/></html>";
+            return x;
         }
+        return null;
     }
     public static String Blacksmith(){
 

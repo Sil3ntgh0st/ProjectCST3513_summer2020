@@ -1,4 +1,6 @@
 import javax.swing.*;
+
+import villageGathererClasses.NPC;
 import villageGathererClasses.Player;
 import villageGathererClasses.T1Item;
 import java.awt.*;
@@ -95,7 +97,7 @@ public class villageMainMenu {
 		buttonPanel.add(startGame);
 		buttonPanel.add(LoadData);
 
-		
+
 		LoadData.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -138,7 +140,7 @@ public class villageMainMenu {
 		JFrame frame = new JFrame("Village Gatherer Main Menu");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(3,1));
+		frame.setLayout(new GridLayout(4,1));
 		Container con = frame.getContentPane();
 		
 		JPanel buttonPanel = new JPanel();
@@ -147,11 +149,15 @@ public class villageMainMenu {
 		
 		JPanel textFrame = new JPanel();
 		textFrame.setBackground(newOrange);
+
+		JPanel vFrame = new JPanel();
+		vFrame.setBackground(newOrange);
 		
 		JPanel topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
-		JLabel importantMessages = new JLabel("What would you like to do today?");
+		JLabel villagerChat = new JLabel(NPC.Villager());
+		JLabel importantMessages = new JLabel("\nWhat would you like to do today?");
 		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.white);
 		
@@ -210,10 +216,12 @@ public class villageMainMenu {
 		});
 		
 		topHUD.add(topHUDinfo);
+		vFrame.add(villagerChat);
 		textFrame.add(importantMessages);
 		
 		
 		con.add(topHUD);
+		con.add(vFrame);
 		con.add(textFrame);
 		con.add(buttonPanel);
 	
@@ -236,6 +244,8 @@ public class villageMainMenu {
 			save.write(""+T1Item.stickCount);
 			save.newLine();
 			save.write(""+T1Item.stoneCount);
+			save.newLine();
+			save.write(""+T1Item.axeCount);
 
 			save.close();
 		}
@@ -260,6 +270,7 @@ public class villageMainMenu {
 			Player.userEnergyLevel = Integer.parseInt(load.readLine());
 			T1Item.stickCount = Integer.parseInt(load.readLine());
 			T1Item.stoneCount = Integer.parseInt(load.readLine());
+			T1Item.axeCount = Integer.parseInt(load.readLine());
 			load.close();
 		}
 		catch(Exception ex){
