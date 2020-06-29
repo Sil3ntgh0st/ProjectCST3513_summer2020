@@ -3,25 +3,18 @@ package	villageGathererClasses;
 import java.lang.Math;
 
 public class NPC {
-    
-   
-
-        //Debug
-        /*for(int i = 0; i < 101; i++){
-            Blacksmith();
-        }*/
 	
 
-    public static void Villager(){
+    public void Villager(){
 
         int randy = ((int)Math.random() * 5);
 
         switch (randy){
             case 0:
-            System.out.println("Good day!");
-            break;
+            //String x ="Good day!";
+            //return x;
             case 1:
-            System.out.println("Did you know there's a blacksmith in town? He's located further up the road!");
+            //System.out.println("Did you know there's a blacksmith in town? He's located further up the road!");
             //return Player.blacksmith = true;
             break;
             case 2:
@@ -35,34 +28,36 @@ public class NPC {
             break;
         }
     }
-    public static void Blacksmith(){
+    public static String Blacksmith(){
 
         int randy = ((int)(Math.random() * 3));
-        //int x = 2;
+        //int x = 2; //Debug
 
         switch (randy){
             case 0:
-            System.out.println("Hello! What can I do for you?");
-            break;
+            String x = "<html>Hello "+Player.userName+"! What can I do for you?</html>";
+            return x;
             case 1:
-            System.out.println("Hey! What do you need?");
-            break;
+            x = "<html>Hey "+Player.userName+"! What do you need?</html>";
+            return x;
             case 2:
             int order = (int)(Math.random()*9002);
             if(order > 9000){
-                System.out.println("Villager! What does the scouter say about his order number?");
-                System.out.println("IT'S OVER 9000!!!!");
-                System.out.println("WHAT?! 9000");
-
+                String y,z;
+               x = "<html>Villager! What does the scouter say about his order number?<br/>";
+               y = "IT'S OVER 9000!!!!<br/>";
+               z ="WHAT?! 9000</html>";
+                return x + y + z;
             }
             if(order == 66){
-                System.out.println("Execute order 66");
-                
+                x ="<html>"+Player.userName+".. Execute order 66..</html>";
+                return x;
             }else{
-            System.out.println("Order number "+order+"! What can I do for you?");
+            x = "<html>Order number "+order+"! What can I do for you?</html>";
+            return x;
             }
-            break;
         }
+        return null;
 
 
 

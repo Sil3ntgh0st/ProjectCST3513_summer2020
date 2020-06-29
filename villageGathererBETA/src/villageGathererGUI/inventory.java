@@ -19,7 +19,8 @@ public class inventory extends villageMainMenu {
 	public int itemListSize = T1Item.allItemsSize();
 //	public JList list = new JList(new DefaultListModel());
 	public String format = "<html>Sticks: " + T1Item.stickCount 
-						 + "<br/>Stones: " + T1Item.stoneCount + "</html>";
+						 + "<br/>Stones: " + T1Item.stoneCount + 
+						   "<br/>Axe: "+ T1Item.axeCount + "</html>";
 	
 	
 	public inventory() {

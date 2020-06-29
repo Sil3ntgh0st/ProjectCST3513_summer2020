@@ -1,5 +1,6 @@
 import villageGathererClasses.NPC;
 import villageGathererClasses.Player;
+import villageGathererClasses.T1Item; 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class blackSmith extends villageMainMenu {
 	public TextField tfCount;
 	private String[] blackSmithItemOptions = {"Axe", "Hammer", "Fishing Rod"};
 	private JPanel infoFrame2;
+	private JPanel infoFrame3;
 	
 	
 	public blackSmith() {
@@ -26,7 +28,7 @@ public class blackSmith extends villageMainMenu {
 		frame = new JFrame("Welcome to the Blacksmith");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(5,1));
+		frame.setLayout(new GridLayout(6,1));
 		con = frame.getContentPane();
 		
 		topHUD = new JPanel();
@@ -35,14 +37,19 @@ public class blackSmith extends villageMainMenu {
 		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.ORANGE);
 		topHUD.add(topHUDinfo);
+
+		infoFrame3 = new JPanel();
+		infoFrame3.setBackground(Color.black);
+		BSchat = new JLabel(NPC.Blacksmith()); // Dialog box now works. NPC Class finally sees the light!
+		BSchat.setForeground(Color.white);
+		infoFrame3.add(BSchat);
 		
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
-		//BSchat = new JLabel(NPC.Blacksmith); // I was trying to make a dialog box work - Patrick
 		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones needed");
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
-		//infoFrame2.add(BSchat);
+		
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.black);
@@ -94,6 +101,7 @@ public class blackSmith extends villageMainMenu {
 		buttonPanel.add(Combine);
 		buttonPanel.add(goBack);
 		frame.add(topHUD);
+		frame.add(infoFrame3);
 		frame.add(infoFrame2);
 		frame.add(infoFrame);
 		frame.add(quantityBar);
@@ -106,10 +114,17 @@ public class blackSmith extends villageMainMenu {
 	    btnCountDown.addActionListener(listener);
 	    btnReset.addActionListener(listener);
 		
+		//Must figure out how to read which Option is selected from the comboBox
+		//Currently 'Combine' button makes an Axe regardless of selection.
 		Combine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
+				T1Item sticks = new T1Item("Stick"); //Adds a stick to the player
+				T1Item stones = new T1Item("Stones"); //Adds a stone to the player
+				T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
+
+				T1Item.craft(sticks,stones,axe); //Supposed to take away 21 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
 			}
 		});
 		

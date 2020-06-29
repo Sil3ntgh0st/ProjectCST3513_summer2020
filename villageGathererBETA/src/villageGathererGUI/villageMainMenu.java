@@ -80,6 +80,10 @@ public class villageMainMenu {
 		JButton startGame = new JButton("START");
 		startGame.setBackground(Color.black);
 		startGame.setForeground(newOrange);
+
+		JButton LoadData = new JButton("Load");
+		LoadData.setBackground(Color.black);
+		LoadData.setForeground(newOrange);
 		
 		
 		JFrame frame = new JFrame("Village Gatherer");
@@ -89,9 +93,9 @@ public class villageMainMenu {
 		Container con = frame.getContentPane();
 		
 		buttonPanel.add(startGame);
-		JButton LoadData = new JButton("Load");
-
 		buttonPanel.add(LoadData);
+
+		
 		LoadData.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -262,7 +266,6 @@ public class villageMainMenu {
 
 		}
 		//frame.setVisible(false);
-		//createVillageMainMenu();
 		//System.out.println(Player.userName); //Debug
 		//System.out.println(Player.userEnergyLevel); //Debug
 		createVillageMainMenu();
@@ -272,7 +275,6 @@ public class villageMainMenu {
 		
 		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
 		villageStart();
-		//createVillageMainMenu();
 		
 	}
 	
