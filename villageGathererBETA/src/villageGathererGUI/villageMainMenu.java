@@ -135,6 +135,9 @@ public class villageMainMenu {
 	
 	public static void createVillageMainMenu() {
 
+		new T1Item("null");
+		
+
 		//System.out.println(new File(".").getAbsoluteFile()); //Find location of where villageMainMenu reads files from
 
 		JFrame frame = new JFrame("Village Gatherer Main Menu");

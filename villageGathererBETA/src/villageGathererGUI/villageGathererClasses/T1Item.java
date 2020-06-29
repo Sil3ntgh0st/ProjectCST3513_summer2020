@@ -102,6 +102,17 @@ public class T1Item {
 		}
 	}
 
+	public static boolean getRequirements(String a){
+		if (a == "Axe"){
+			if(stickCount >=31 && stoneCount >= 21){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		return false;
+	}
+
 //	public static String getAllItems(ArrayList<String>[] a) {
 //		
 //		int count = 0;

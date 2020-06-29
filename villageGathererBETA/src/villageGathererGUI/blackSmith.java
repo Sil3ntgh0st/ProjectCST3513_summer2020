@@ -98,6 +98,7 @@ public class blackSmith extends villageMainMenu {
 		Combine = new JButton("Combine");
 		goBack = new JButton("Go Back");
 		
+		
 		buttonPanel.add(Combine);
 		buttonPanel.add(goBack);
 		frame.add(topHUD);
@@ -106,8 +107,11 @@ public class blackSmith extends villageMainMenu {
 		frame.add(infoFrame);
 		frame.add(quantityBar);
 		frame.add(buttonPanel);
+		Combine.setEnabled(false);
 		
-
+		if(T1Item.getRequirements("Axe") == true){
+			Combine.setEnabled(true);
+		}
 		
 	    BtnListener listener = new BtnListener();
 	    btnCountUp.addActionListener(listener);
@@ -124,7 +128,7 @@ public class blackSmith extends villageMainMenu {
 				T1Item stones = new T1Item("Stones"); //Adds a stone to the player
 				T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
-				T1Item.craft(sticks,stones,axe); //Supposed to take away 21 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
+				T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
 			}
 		});
 		
