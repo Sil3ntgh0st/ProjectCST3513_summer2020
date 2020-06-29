@@ -20,7 +20,9 @@ public class villageMainMenu {
 	public JPanel titleFrame, textFrame;
 	public JPanel buttonPanel;
 	public JPanel topHUD;
-	public JButton inventoryChoice, blacksmithChoice, jobsChoice, LoadData;
+	public JButton inventoryChoice, blacksmithChoice;
+	public static JButton jobsChoice;
+	public JButton LoadData;
 	public JLabel importantMessages;
 	public static JLabel topHUDinfo;
 	public Font defaultFont = new Font("HERCULANUM", Font.PLAIN, 18);
@@ -29,6 +31,8 @@ public class villageMainMenu {
 	public JButton startGame;
 	public JTextField usernameInput;
 	public static String format = "Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel();
+	//private static String[] jobsOptions = {"The Forest", "The Lake"};
+	//private static JPanel infoFrame;
 	
 	
 	public villageMainMenu() {
@@ -141,7 +145,7 @@ public class villageMainMenu {
 		JFrame frame = new JFrame("Village Gatherer Main Menu");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(4,1));
+		frame.setLayout(new GridLayout(5,1));  //4
 		Container con = frame.getContentPane();
 		
 		JPanel buttonPanel = new JPanel();
@@ -162,9 +166,21 @@ public class villageMainMenu {
 		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.white);
 		
-		JButton jobsChoice = new JButton("Jobs");
+		JButton jobsChoice = new JButton("Forest");
 		jobsChoice.setBackground(Color.black);
 		jobsChoice.setForeground(newOrange);
+		
+		JButton lake = new JButton("The Lake");
+		lake.setBackground(Color.black);
+		lake.setForeground(newOrange);
+		
+		//infoFrame = new JPanel();
+		//infoFrame.setBackground(Color.black);
+		//JLabel jobChoices = new JLabel("Jobs: ");
+		//JComboBox jobsChoices = new JComboBox(jobsOptions);
+		//infoFrame.add(jobChoices);
+		//infoFrame.add(jobsChoices);
+		
 		
 		
 		JButton blacksmithChoice = new JButton("Blacksmith");
@@ -191,6 +207,18 @@ public class villageMainMenu {
 				topHUDinfo.setText("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 			}
 		});
+		
+		buttonPanel.add(lake);
+		jobsChoice.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				lakeRoom lakeWindow = new lakeRoom();
+				lakeWindow.frame.setVisible(true);
+				frame.setVisible(false);
+				topHUDinfo.setText("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
+			}
+		});
+		
 		buttonPanel.add(blacksmithChoice);
 		blacksmithChoice.addActionListener(new ActionListener() {
 			@Override
