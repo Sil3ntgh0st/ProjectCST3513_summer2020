@@ -11,7 +11,7 @@ public class blackSmith extends villageMainMenu {
 	public Container con;
 	public JPanel buttonPanel, infoFrame,topHUD;
 	public JButton goBack, Combine;
-	public JLabel importantMessages, topHUDinfo, blackSmithChoices, BSchat,importantMessages1,importantMessages2;
+	public JLabel importantMessages, topHUDinfo, blackSmithChoices, BSchat;
 	public JComboBox blackSmithItems;
 	private Button btnCountUp;
 	private Button btnCountDown;
@@ -47,7 +47,6 @@ public class blackSmith extends villageMainMenu {
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
 		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones needed");
-		
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
 		
