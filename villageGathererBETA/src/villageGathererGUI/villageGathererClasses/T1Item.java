@@ -74,16 +74,20 @@ public class T1Item {
 		
 	}
 	
-	public static void craft(int a, int b, T1Item c) {
+	public static void craft(T1Item a, T1Item b, T1Item c) {
 		
 		if(c.item == "Axe"){
+			a.setCount(a.getCount()-31);
+			b.setCount(b.getCount()-21);
+			c.setCount(c.getCount()+0);
 			//Temporary fix until a.setCount(a.getCount()-21) works
-			stickCount -= a; 
-			stoneCount -= b;
+			stickCount -= 31; 
+			stoneCount -= 21;
 			axeCount++;
 		}
-		
-
+		a.setCount(a.getCount()-1);
+		b.setCount(b.getCount()-1);
+		c.setCount(c.getCount()+1);	
 	}
 	
 	public void eat(T1Item a) {
@@ -127,16 +131,6 @@ public class T1Item {
 		temp = itemList.size();
 		
 		return temp;
-	}
-
-	public static int getStickCount() {
-		
-		return T1Item.stickCount;
-	}
-	
-	public static int getStoneCount() {
-		
-		return T1Item.stoneCount;
 	}
 	
 }
