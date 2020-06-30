@@ -64,18 +64,6 @@ public class inventory extends villageMainMenu
 	frame.add(infoFrame);
 	frame.add(buttonPanel);
 	
-	search.addActionListener(new ActionListener() 
-	{
-		@Override
-		public void actionPerformed(ActionEvent e) 
-		{
-			//giveItem() goes here ---> Make sure giveItem will give either sticks or stones
-			/*getDescription() goes here --> Should have a way to be added 
-			 * to "importantMessages somehow)
-			 */
-		}
-	});
-	
 	goBack.addActionListener(new ActionListener()//Create the goBack method with addition to the addActionListener event.
 	{
 		@Override
