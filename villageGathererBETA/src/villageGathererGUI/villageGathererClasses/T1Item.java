@@ -99,10 +99,14 @@ public class T1Item {
 	
 	
 	public static void eat(int i, int fishCount) {
+		if(fishCount <= 0) {
+			System.out.println("No fish left");
+		}
+		else {
 		fishCount -=i;
 		Player.addEnergyLevel();
 		}
-	//asd
+	}
 	
 	public static boolean canEat(String a) {
 		if (a == "Fish"){

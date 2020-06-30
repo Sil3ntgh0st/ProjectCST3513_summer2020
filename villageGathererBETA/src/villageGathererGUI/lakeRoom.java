@@ -70,6 +70,7 @@ public class lakeRoom extends villageMainMenu {
 					
 				}
 				else {
+					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 					System.out.println("The fish got away! Better luck next time!");
 					importantMessages.setText("The fish got away! Better luck next time!");
 					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
@@ -82,10 +83,16 @@ public class lakeRoom extends villageMainMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				if(T1Item.fishCount == 0) {
+					importantMessages.setText("<html>No Fish Available<br/>You need to Fish more! <html/>");
+					}
+				else {
 				T1Item.eat(1, T1Item.fishCount);
+				T1Item.fishCount--;
 				System.out.println("You ate a fish.");
 				importantMessages.setText("You gained energy.");
 				topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());				
+				}
 			}
 		});
 		
