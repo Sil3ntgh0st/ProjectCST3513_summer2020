@@ -60,7 +60,7 @@ public class lakeRoom extends villageMainMenu {
 				
 				Random rand = new Random();
 				int decision = rand.nextInt(1000);
-				
+				if(Player.userEnergyLevel != 0){
 				if(decision % 2 != 0 ) {
 					T1Item fish = new T1Item("Fish");
 					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
@@ -75,6 +75,11 @@ public class lakeRoom extends villageMainMenu {
 					importantMessages.setText("The fish got away! Better luck next time!");
 					topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 				}
+			}
+			else {
+				System.out.println("Eat Fish to get Energy");
+				importantMessages.setText("Eat Fish to Get Energy");
+			}
 				
 			}
 		});
