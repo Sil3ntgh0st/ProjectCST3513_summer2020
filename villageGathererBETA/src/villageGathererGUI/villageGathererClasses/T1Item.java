@@ -102,6 +102,7 @@ public class T1Item {
 		fishCount -=i;
 		Player.addEnergyLevel();
 		}
+	//asd
 	
 	public static boolean canEat(String a) {
 		if (a == "Fish"){
