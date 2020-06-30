@@ -7,7 +7,7 @@ public class NPC {
 
     public static String Villager(){
 
-        int randy = ((int)(Math.random() * 5));
+        int randy = ((int)(Math.random() * 5)); //Math.random allows for a random setText output when Villager() is called
 
         switch (randy){
             case 0:
@@ -41,15 +41,15 @@ public class NPC {
             x = "<html>Hey "+Player.userName+"! What do you need?</html>";
             return x;
             case 2:
-            int order = (int)(Math.random()*9002);
-            if(order > 9000){
+            int order = (int)(Math.random()*9002); 
+            if(order > 9000){ //Over 9000 easter egg. If order is 9001, it triggers.
                 String y,z;
                x = "<html>Villager! What does the scouter say about his order number?<br/>";
                y = "IT'S OVER 9000!!!!<br/>";
                z ="WHAT?! 9000</html>";
                 return x + y + z;
             }
-            if(order == 66){
+            if(order == 66){ //Star wars Order 66 easter egg.
                 x ="<html>"+Player.userName+".. Execute order 66..</html>";
                 return x;
             }else{

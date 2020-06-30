@@ -18,7 +18,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 	private Button btnReset;
 	private JPanel quantityBar;
 	public TextField tfCount;
-	private String[] blackSmithItemOptions = {"Axe", "Hammer", "Fishing Rod"};
+	private String[] blackSmithItemOptions = {"Axe", "Hammer", "Fishing Rod"}; //Sets the dropdown options.
 	private JPanel infoFrame2;
 	private JPanel infoFrame3;
 	
@@ -27,26 +27,26 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		
 		frame = new JFrame("Welcome to the Blacksmith");
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //If Player hits red X, programs closes.
 		frame.setLayout(new GridLayout(6,1));
 		con = frame.getContentPane();
 		
 		topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
-		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: " + Player.getEnergyLevel());
+		topHUDinfo = new JLabel("Username: "+Player.userName + " Energy: " + Player.getEnergyLevel()); //Displays the Player's name and his energy level.
 		topHUDinfo.setForeground(Color.ORANGE);
 		topHUD.add(topHUDinfo);
 
 		infoFrame3 = new JPanel();
 		infoFrame3.setBackground(Color.black);
-		BSchat = new JLabel(NPC.Blacksmith()); // Dialog box now works. NPC Class finally sees the light!
+		BSchat = new JLabel(NPC.Blacksmith()); // Dialog box now works. NPC Class finally sees the light! Displays dialogue from the Blacksmith
 		BSchat.setForeground(Color.white);
 		infoFrame3.add(BSchat);
 		
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
-		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
+		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>"); //Default text for Label
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
 		
@@ -58,7 +58,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		String bsItem = blackSmithItems.getSelectedItem().toString();
 		infoFrame.add(blackSmithChoices);
 		infoFrame.add(blackSmithItems);
-		blackSmithItems.addItemListener(this);
+		blackSmithItems.addItemListener(this); //Refreshes the window each time a new option is selected. Calls method in Line 167
 		
 		
 		quantityBar = new JPanel();
@@ -126,21 +126,25 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 				
 
 				if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Axe"))){
-					int sticks = 30; //Adds a stick to the player
-					int stones = 20; //Adds a stone to the player
+					int sticks = 30; //Sets the stick cost of the Axe to be deducted in T1Item.craft()
+					int stones = 20; //Sets the stone cost of the Axe to be deducted in T1Item.craft()
 					T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
-					T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
+					T1Item.craft(sticks,stones,axe); //Will subtract 30 sticks and 20 stones from the Player to provide an Axe.
 				}
 				else if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Fishing Rod"))){
-					int sticks = 6;
+					int sticks = 6; //Sets the stick cost of Fishing Rod
 					int stones = 0;
 					T1Item fishingRod = new T1Item("Fishing Rod");
 
-					T1Item.craft(sticks,stones,fishingRod);
+					T1Item.craft(sticks,stones,fishingRod); //Subtracts 6 sticks to create a Fishing Rod
 				}
 				else if (bsItem.equals("Hammer")){
-					
+					int sticks = 5;
+					int stones = 7;
+					T1Item hammer = new T1Item("Hammer");
+
+					T1Item.craft(sticks,stones,hammer); //Subtracts 5 sticks and 7 stones from Player to create a hammer
 				}
 				
 				if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == false){
@@ -152,9 +156,9 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		goBack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
+				frame.setVisible(false); //"Closes" the Blacksmith frame
 				
-				createVillageMainMenu();
+				createVillageMainMenu(); //Calls village mainmenu to open
 			}
 		});
 		
@@ -162,6 +166,8 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 	}
 	public void itemStateChanged(ItemEvent e){
 		if(e.getSource() == blackSmithItems){
+
+			//Changes the JLabel 'importantMessages' to appropriate selected option in the comboBox
 			if (blackSmithItems.getSelectedItem().toString() == "Axe"){
 				importantMessages.setText("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
 			}
@@ -173,7 +179,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 			}
 
 		}
-		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true){
+		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true){//If the user does not have enough materials to craft, Combine button is disabled.
 			Combine.setEnabled(true);
 		} else{
 			Combine.setEnabled(false);
