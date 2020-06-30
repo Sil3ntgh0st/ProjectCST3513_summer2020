@@ -82,7 +82,7 @@ public class lakeRoom extends villageMainMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				T1Item.eat(1, fish);
+				T1Item.eat(1, T1Item.fishCount);
 				System.out.println("You ate a fish.");
 				importantMessages.setText("You gained energy.");
 				topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());				

@@ -1,6 +1,8 @@
 package villageGathererClasses;
 import java.util.*;
 
+import javax.swing.JButton;
+
 
 public class T1Item {
 	
@@ -96,12 +98,10 @@ public class T1Item {
 	}
 	
 	
-	public static void eat(T1Item b) {
-		if(b.item == "Fish") {
-		fishCount -=1;
+	public static void eat(int i, int fishCount) {
+		fishCount -=i;
 		Player.addEnergyLevel();
 		}
-	}
 	
 	public static boolean canEat(String a) {
 		if (a == "Fish"){
@@ -144,5 +144,6 @@ public class T1Item {
 		
 		return temp;
 	}
+
 	
 }

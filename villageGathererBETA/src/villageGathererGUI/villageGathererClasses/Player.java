@@ -57,7 +57,7 @@ public class Player {                      // superclass is T1Item and it is sub
     }
     
     public static void addEnergyLevel() {
-    	Player.userEnergyLevel += 50;
+    	Player.userEnergyLevel += 5;
     }
     
     public void EnergylowAlert(){

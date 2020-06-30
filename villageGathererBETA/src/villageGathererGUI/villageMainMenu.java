@@ -53,8 +53,7 @@ public class villageMainMenu {
 
 		boolean test;
 
-		
-		
+	
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.black);
 		
@@ -211,7 +210,7 @@ public class villageMainMenu {
 		});
 		
 		buttonPanel.add(lake);
-		jobsChoice.addActionListener(new ActionListener() {
+		lake.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				lakeRoom lakeWindow = new lakeRoom();
