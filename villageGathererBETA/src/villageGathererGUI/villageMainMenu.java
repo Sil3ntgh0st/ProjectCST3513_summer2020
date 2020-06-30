@@ -29,15 +29,16 @@ public class villageMainMenu {
 	public String location;
 	public JButton startGame;
 	public JTextField usernameInput;
+	//format gives the topHUD it's information
 	public static String format = "Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel();
-	//private static String[] jobsOptions = {"The Forest", "The Lake"};
-	//private static JPanel infoFrame;
+
 	
 	
 	public villageMainMenu() {
 		
 	}
 	
+	//sets the entire App's font
 	public static void setUIFont (javax.swing.plaf.FontUIResource f){
 		Enumeration keys = UIManager.getDefaults().keys();
 	    while (keys.hasMoreElements()) {
@@ -48,10 +49,10 @@ public class villageMainMenu {
 	      }
 	    }
 	
+	
+	//Window to start game and enter username
 	public static void villageStart() {
 
-
-	
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.black);
 		
@@ -65,14 +66,14 @@ public class villageMainMenu {
 		c.weighty = 1;
 		c.fill = GridBagConstraints.HORIZONTAL;
 
-	
+		//Label to give any information on middle panel
 		JLabel importantMessages = new JLabel("<html>Welcome to your Village<br/><br/>" + "\n Enter your username" + "</html>");
 		c.gridx=0;
 		c.gridwidth = 2;
 		c.gridy= 0;
 		titleFrame.add(importantMessages, c);
 		
-		
+		//Text field for username
 		JTextField usernameInput = new JTextField();
 		c.gridx=0;
 		c.gridwidth = 2;
@@ -80,15 +81,17 @@ public class villageMainMenu {
 		usernameInput.setPreferredSize(null);
 		titleFrame.add(usernameInput, c);
 		
+		//Button starts the game and loads villageMainMenu()
 		JButton startGame = new JButton("START");
 		startGame.setBackground(Color.black);
 		startGame.setForeground(newOrange);
 
+		//Load button that uses file writer load to grab saved text from "save.txt"
 		JButton LoadData = new JButton("Load");
 		LoadData.setBackground(Color.black);
 		LoadData.setForeground(newOrange);
 		
-		
+		//The window
 		JFrame frame = new JFrame("Village Gatherer");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,7 +101,7 @@ public class villageMainMenu {
 		buttonPanel.add(startGame);
 		buttonPanel.add(LoadData);
 
-
+		// Action listener for load button for loading game
 		LoadData.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -107,6 +110,7 @@ public class villageMainMenu {
 			}
 		});
 		
+		//Action listener for start button for opening villageMainMenu
 		startGame.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -125,6 +129,7 @@ public class villageMainMenu {
 		});
 		// any
 		
+		//add everything to a container
 		con.add(titleFrame);
 		con.add(buttonPanel);
 		
@@ -136,66 +141,63 @@ public class villageMainMenu {
 	
 	public static void createVillageMainMenu() {
 
-		
-		
-
-		//System.out.println(new File(".").getAbsoluteFile()); //Find location of where villageMainMenu reads files from
-
+		//Game Frame
 		JFrame frame = new JFrame("Village Gatherer Main Menu");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new GridLayout(4,1));  //4
 		Container con = frame.getContentPane();
 		
+		//Button Panel to hold your button
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(300, 400, 200, 100);
 		buttonPanel.setBackground(Color.black);
 		
+		//Panel for text
 		JPanel textFrame = new JPanel();
 		textFrame.setBackground(newOrange);
-
+		
+		//Panel for NPC class dialogue 
 		JPanel vFrame = new JPanel();
 		vFrame.setBackground(newOrange);
 		
+		//Panel for the top informational HUD
 		JPanel topHUD = new JPanel();
 		topHUD.setBackground(Color.black);
 		
+		//Label for the NPC dialogue
 		JLabel villagerChat = new JLabel(NPC.Villager());
 		JLabel importantMessages = new JLabel("\nWhat would you like to do today?");
 		JLabel topHUDinfo = new JLabel("Username:  " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 		topHUDinfo.setForeground(Color.white);
 		
+		//Button for forest window
 		JButton jobsChoice = new JButton("Forest");
 		jobsChoice.setBackground(Color.black);
 		jobsChoice.setForeground(newOrange);
 		
+		//Button for lake window
 		JButton lake = new JButton("The Lake");
 		lake.setBackground(Color.black);
 		lake.setForeground(newOrange);
 		
-		//infoFrame = new JPanel();
-		//infoFrame.setBackground(Color.black);
-		//JLabel jobChoices = new JLabel("Jobs: ");
-		//JComboBox jobsChoices = new JComboBox(jobsOptions);
-		//infoFrame.add(jobChoices);
-		//infoFrame.add(jobsChoices);
-		
-		
-		
+		//Button for blacksmith window
 		JButton blacksmithChoice = new JButton("Blacksmith");
 		blacksmithChoice.setBackground(Color.black);
 		blacksmithChoice.setForeground(newOrange);
 		
+		//Button for inventory window
 		JButton inventoryChoice = new JButton("Inventory");		
 		inventoryChoice.setBackground(Color.black);
 		inventoryChoice.setForeground(newOrange);
 
+		//Button for saving progress
 		JButton saveChoice = new JButton("Save");
 		saveChoice.setBackground(Color.black);
 		saveChoice.setForeground(newOrange);
 
 		
-		
+		//adds button and action listener 
 		buttonPanel.add(jobsChoice);
 		jobsChoice.addActionListener(new ActionListener() {
 			@Override
@@ -207,6 +209,7 @@ public class villageMainMenu {
 			}
 		});
 		
+		//adds button and action listener 
 		buttonPanel.add(lake);
 		lake.addActionListener(new ActionListener() {
 			@Override
@@ -218,6 +221,7 @@ public class villageMainMenu {
 			}
 		});
 		
+		//adds button and action listener 
 		buttonPanel.add(blacksmithChoice);
 		blacksmithChoice.addActionListener(new ActionListener() {
 			@Override
@@ -227,6 +231,8 @@ public class villageMainMenu {
 				frame.setVisible(false);
 			}
 		});
+		
+		//adds button and action listener 
 		buttonPanel.add(inventoryChoice);
 		inventoryChoice.addActionListener(new ActionListener() {
 			@Override
@@ -235,6 +241,8 @@ public class villageMainMenu {
 				inventoryWindow.frame.setVisible(true);
 			}
 		});
+		
+		//adds button and action listener 
 		buttonPanel.add(saveChoice);
 		saveChoice.addActionListener(new ActionListener() {
 			@Override
@@ -259,6 +267,7 @@ public class villageMainMenu {
 		
 	}
 
+	//File writer to save your progress
 	public static void villageSave(){
 
 		try{
@@ -315,6 +324,8 @@ public class villageMainMenu {
 		{new T1Item("null");}
 	}
 
+	
+	//main function for the entire game
 	public static void main(String[] args) {
 		
 		setUIFont(new javax.swing.plaf.FontUIResource("HERCULANUM",Font.PLAIN,15));
