@@ -27,7 +27,8 @@ public class Player {                      // superclass is T1Item and it is sub
     public Player(String u) { //When Player is created. Player will be created in the game with a base value of 100 energy
     	
     	Player.userName = u;
-    	userEnergyLevel = 100;
+        userEnergyLevel = 100;
+        T1Item.fishCount = 5;
         System.out.println("Player new name!");
     	
     }
