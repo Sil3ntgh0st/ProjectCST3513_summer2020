@@ -6,7 +6,8 @@ import javax.swing.*;
 import villageGathererClasses.Player;
 import villageGathererClasses.T1Item;
 
-public class inventory extends villageMainMenu {
+public class inventory extends villageMainMenu 
+{
 	
 	public JFrame frame;
 	public Container con;
@@ -60,15 +61,17 @@ public class inventory extends villageMainMenu {
 	
 	goBack = new JButton("Go Back");
 	
-	buttonPanel.add(search);
+	buttonPanel.add(search);//Added buttons search and goBack to the panel.
 	buttonPanel.add(goBack);
-	frame.add(topHUD);
+	frame.add(topHUD);//Added frames of topHUD, infoFrame, and buttonPanel.
 	frame.add(infoFrame);
 	frame.add(buttonPanel);
 	
-	search.addActionListener(new ActionListener() {
+	search.addActionListener(new ActionListener() 
+	{
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) 
+		{
 			//giveItem() goes here ---> Make sure giveItem will give either sticks or stones
 			/*getDescription() goes here --> Should have a way to be added 
 			 * to "importantMessages somehow)
@@ -76,9 +79,11 @@ public class inventory extends villageMainMenu {
 		}
 	});
 	
-	goBack.addActionListener(new ActionListener() {
+	goBack.addActionListener(new ActionListener()//Create the goBack method with addition to the addActionListener event.
+	{
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e)//Create the actionPerformed method to setting the frame.setVisible to be false. 
+		{
 			frame.setVisible(false);
 		}
 	});
