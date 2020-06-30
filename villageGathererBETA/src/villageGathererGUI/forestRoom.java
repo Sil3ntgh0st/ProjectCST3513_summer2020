@@ -32,7 +32,7 @@ public class forestRoom extends villageMainMenu {
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.green);
-		importantMessages = new JLabel("Important Alerts Go Here");
+		importantMessages = new JLabel("Go look for some items!");
 		
 		topHUD.add(topHUDinfo);
 		infoFrame.add(importantMessages);

@@ -32,7 +32,7 @@ public class lakeRoom extends villageMainMenu {
 		
 		infoFrame = new JPanel();
 		infoFrame.setBackground(Color.green);
-		importantMessages = new JLabel("Important Alerts Go Here");
+		importantMessages = new JLabel("Go fishing!");
 		
 		topHUD.add(topHUDinfo);
 		infoFrame.add(importantMessages);
