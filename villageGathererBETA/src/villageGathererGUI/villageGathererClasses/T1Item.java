@@ -7,10 +7,7 @@ import java.util.*;
 public class T1Item {
 	
 	public int count;
-	public static int stickCount;
-	public static int stoneCount;
-	public static int axeCount;
-	public static int fishCount;
+	public static int stickCount,stoneCount,axeCount,fishCount,fishingrodCount;
 	public String description, item;
 	public static String[] itemListString;
 	public static ArrayList<String> itemList = new ArrayList<>();
@@ -81,20 +78,27 @@ public class T1Item {
 		
 	}
 	
-	public static void craft(T1Item a, T1Item b, T1Item c) {
+	public static void craft(int a, int b, T1Item c) {
 		
 		if(c.item == "Axe"){
-			a.setCount(a.getCount()-31);
-			b.setCount(b.getCount()-21);
-			c.setCount(c.getCount()+0);
-			//Temporary fix until a.setCount(a.getCount()-21) works
-			stickCount -= 31; 
-			stoneCount -= 21;
+			
+			stickCount -= a; 
+			stoneCount -= b;
 			axeCount++;
 		}
-		a.setCount(a.getCount()-1);
-		b.setCount(b.getCount()-1);
-		c.setCount(c.getCount()+1);	
+		else if(c.item == "Hammer"){
+			
+			stickCount -= a; 
+			stoneCount -= b;
+			
+		}
+		else if(c.item == "Fishing Rod"){
+			
+			stickCount -= a; 
+			stoneCount -= b;
+			fishingrodCount++;
+		}
+		
 	}
 	
 	

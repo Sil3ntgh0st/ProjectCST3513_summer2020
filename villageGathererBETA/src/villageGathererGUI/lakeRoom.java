@@ -41,9 +41,11 @@ public class lakeRoom extends villageMainMenu {
 		buttonPanel.setBackground(Color.blue);
 		
 		fish = new JButton("Fish");
-		//fish.setEnabled(false); //To be edited to require fishing pole. Add craft fishing rod to Combine button in Blacksmith(line: 126 )
+		fish.setEnabled(false); //To be edited to require fishing pole. Add craft fishing rod to Combine button in Blacksmith(line: 126 )
 
-		
+		if(T1Item.fishingrodCount != 0){
+			fish.setEnabled(true);
+		}
 
 
 		eat = new JButton("Eat");

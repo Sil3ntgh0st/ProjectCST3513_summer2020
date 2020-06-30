@@ -46,10 +46,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
-		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed"
-		+ "<br />Hammer: Allows you to crush rocks for double the stones<br/> 5 sticks & 7 stones needed!"
-		+ "<br />Fishing Rod: Allows you to fish<br/> 6 sticks  needed!");
-		
+		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
 		
@@ -61,6 +58,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		String bsItem = blackSmithItems.getSelectedItem().toString();
 		infoFrame.add(blackSmithChoices);
 		infoFrame.add(blackSmithItems);
+		blackSmithItems.addItemListener(this);
 		
 		
 		quantityBar = new JPanel();
@@ -113,7 +111,6 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		frame.add(buttonPanel);
 		Combine.setEnabled(false);
 
-		blackSmithItems.addItemListener(this);
 		
 	    BtnListener listener = new BtnListener();
 	    btnCountUp.addActionListener(listener);
@@ -126,21 +123,29 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		Combine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 
-				if(bsItem.equals("Axe")){
-					T1Item sticks = new T1Item("Stick"); //Adds a stick to the player
-					T1Item stones = new T1Item("Stones"); //Adds a stone to the player
+				if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Axe"))){
+					int sticks = 30; //Adds a stick to the player
+					int stones = 20; //Adds a stone to the player
 					T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
 					T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
 				}
+				else if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Fishing Rod"))){
+					int sticks = 6;
+					int stones = 0;
+					T1Item fishingRod = new T1Item("Fishing Rod");
+
+					T1Item.craft(sticks,stones,fishingRod);
+				}
 				else if (bsItem.equals("Hammer")){
 					
 				}
-				else if(bsItem.equals("Fishing Rod")){
-
-				}
 				
+				if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == false){
+					Combine.setEnabled(false);
+				}
 			}
 		});
 		
@@ -157,6 +162,15 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 	}
 	public void itemStateChanged(ItemEvent e){
 		if(e.getSource() == blackSmithItems){
+			if (blackSmithItems.getSelectedItem().toString() == "Axe"){
+				importantMessages.setText("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
+			}
+			else if(blackSmithItems.getSelectedItem().toString() == "Hammer"){
+				importantMessages.setText("<html>Hammer: Allows you to crush rocks for double the stones<br/> 5 sticks & 7 stones needed!</html>");
+			}
+			else if(blackSmithItems.getSelectedItem().toString() == "Fishing Rod"){
+				importantMessages.setText("<html>Fishing Rod: Allows you to fish<br/> 6 sticks needed!</html>");
+			}
 
 		}
 		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true){
