@@ -12,7 +12,7 @@ public class T1Item {
 	public static String[] itemListString;
 	public static ArrayList<String> itemList = new ArrayList<>();
 	
-	public T1Item(){
+	public T1Item(){ //T1Item constructor
 		item = "";
 		count = 0;
 		stickCount = 0;
@@ -29,19 +29,19 @@ public class T1Item {
 		T1Item.itemList.add(itemName);
 //		or switch case can be used here for multiple items, 
 //		or even a loop of items can be placed here
-		if(itemName == "Stick") {
+		if(itemName == "Stick") { //adds stick to inventory to save
 			stickCount++;
 		}
-		else if (itemName == "Stone") {
+		else if (itemName == "Stone") { //adds stone to inventory to save
 			stoneCount++;
 		}
-		else if (itemName == "Fish") {
+		else if (itemName == "Fish") { //adds fish to inventory to save
 			fishCount++;
 		}
-		System.out.println(itemName + " was created");
+		System.out.println(itemName + " was created"); //prompts the user when an item is added
 	}
 	
-	public boolean isStick() {
+	public boolean isStick() { //ensures user has item stick
 		if(this.item == "Stick") {
 			return true;
 		}
@@ -69,7 +69,7 @@ public class T1Item {
 		return description;
 	}
 	
-	public boolean hasItem(T1Item a) {
+	public boolean hasItem(T1Item a) { //ensures user has any item in inventory
 		boolean hasItem = false;
 		if (a.count>0) {
 			hasItem = true;
@@ -78,21 +78,21 @@ public class T1Item {
 		
 	}
 	
-	public static void craft(int a, int b, T1Item c) {
+	public static void craft(int a, int b, T1Item c) { //craft method which first two args are the needed mats and third is the crafted item
 		
-		if(c.item == "Axe"){
+		if(c.item == "Axe"){ //creates axe
 			
 			stickCount -= a; 
 			stoneCount -= b;
 			axeCount++;
 		}
-		else if(c.item == "Hammer"){
+		else if(c.item == "Hammer"){ //creates hammer
 			
 			stickCount -= a; 
 			stoneCount -= b;
 			
 		}
-		else if(c.item == "Fishing Rod"){
+		else if(c.item == "Fishing Rod"){ //creates fishing rod
 			
 			stickCount -= a; 
 			stoneCount -= b;
@@ -102,36 +102,27 @@ public class T1Item {
 	}
 	
 	
-	public static void eat(int i, int fishCount) {
+	public static void eat(int i, int fishCount) { //allows user to eat a fish, checks ensures a fish is located in inventory
 		if(fishCount <= 0) {
-			System.out.println("No fish left");
+			System.out.println("No fish left"); //output if not enough fish
 		}
 		else {
-		fishCount -=i;
-		Player.addEnergyLevel();
+		fishCount -=i; //reflect fish count change
+		Player.addEnergyLevel(); //reflect energy level increase
 		}
 	}
 	
-	public static boolean canEat(String a) {
-		if (a == "Fish"){
-			if(fishCount >=1){
-				return true;
-			}else{
-				return false;
-			}
-		}
-		return false;
-	}
 
-	public static boolean getRequirements(String a){
+
+	public static boolean getRequirements(String a){ //ensures materials are present to create specific items
 		if (a == "Axe"){
-			if(stickCount >=31 && stoneCount >= 21){
+			if(stickCount >=31 && stoneCount >= 21){ //esnure requirements for axe is met
 				return true;
 			}else{
 				return false;
 			}
 		}
-		else if(a == "Fishing Rod"){
+		else if(a == "Fishing Rod"){ //ensures requirements for fishing rod is met
 			if(stickCount >= 6){
 				return true;
 			}else{
@@ -139,7 +130,7 @@ public class T1Item {
 			}
 		}
 		else if(a == "Hammer"){
-			if(stickCount >=5 && stoneCount >= 7){
+			if(stickCount >=5 && stoneCount >= 7){ //ensures requirement for hammer is met
 				return true;
 			}
 			else{
