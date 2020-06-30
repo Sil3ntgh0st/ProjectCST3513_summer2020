@@ -27,7 +27,7 @@ public class Player {                      // superclass is T1Item and it is sub
     public Player(String u) {
     	
     	Player.userName = u;
-    	userEnergyLevel = 100;
+    	userEnergyLevel = 500;
         System.out.println("Player new name!");
     	
     }
@@ -57,7 +57,7 @@ public class Player {                      // superclass is T1Item and it is sub
     }
     
     public static void addEnergyLevel() {
-    	Player.userEnergyLevel += 5;
+    	Player.userEnergyLevel += 25;
     }
     
     public void EnergylowAlert(){

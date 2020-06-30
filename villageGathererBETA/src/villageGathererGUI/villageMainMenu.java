@@ -138,7 +138,7 @@ public class villageMainMenu {
 	
 	public static void createVillageMainMenu() {
 
-		new T1Item("null");
+		
 		
 
 		//System.out.println(new File(".").getAbsoluteFile()); //Find location of where villageMainMenu reads files from
@@ -146,7 +146,7 @@ public class villageMainMenu {
 		JFrame frame = new JFrame("Village Gatherer Main Menu");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(5,1));  //4
+		frame.setLayout(new GridLayout(4,1));  //4
 		Container con = frame.getContentPane();
 		
 		JPanel buttonPanel = new JPanel();
@@ -287,7 +287,7 @@ public class villageMainMenu {
 		//This is a little prompt to make sure save works.
 		JFrame f = new JFrame();
 				JLabel alert = new JLabel("<html>::Progress has been saved!::</html>");
-				alert.setForeground(Color.black);
+				alert.setForeground(Color.white);
 				JOptionPane.showMessageDialog(f, alert, "", JOptionPane.OK_CANCEL_OPTION);
 
 	}
@@ -309,10 +309,9 @@ public class villageMainMenu {
 		catch(Exception ex){
 
 		}
-		//frame.setVisible(false);
-		//System.out.println(Player.userName); //Debug
-		//System.out.println(Player.userEnergyLevel); //Debug
 		createVillageMainMenu();
+		if((T1Item.stickCount != 0 || T1Item.stoneCount != 0 || T1Item.fishCount != 0))
+		{new T1Item("null");}
 	}
 
 	public static void main(String[] args) {

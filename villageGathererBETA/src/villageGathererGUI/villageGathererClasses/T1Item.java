@@ -1,7 +1,7 @@
 package villageGathererClasses;
 import java.util.*;
 
-import javax.swing.JButton;
+//import javax.swing.JButton;
 
 
 public class T1Item {
@@ -124,6 +124,21 @@ public class T1Item {
 			if(stickCount >=31 && stoneCount >= 21){
 				return true;
 			}else{
+				return false;
+			}
+		}
+		else if(a == "Fishing Rod"){
+			if(stickCount >= 6){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		else if(a == "Hammer"){
+			if(stickCount >=5 && stoneCount >= 7){
+				return true;
+			}
+			else{
 				return false;
 			}
 		}

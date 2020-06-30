@@ -41,7 +41,11 @@ public class lakeRoom extends villageMainMenu {
 		buttonPanel.setBackground(Color.blue);
 		
 		fish = new JButton("Fish");
+		//fish.setEnabled(false); //To be edited to require fishing pole. Add craft fishing rod to Combine button in Blacksmith(line: 126 )
+
 		
+
+
 		eat = new JButton("Eat");
 
 		
@@ -62,7 +66,7 @@ public class lakeRoom extends villageMainMenu {
 				int decision = rand.nextInt(1000);
 				if(Player.userEnergyLevel != 0){
 				if(decision % 2 != 0 ) {
-					T1Item fish = new T1Item("Fish");
+					/*T1Item fish =*/ new T1Item("Fish"); //Commented fish out until there's a use for it -Patrick
 					Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 					System.out.println("You gained a fish.");
 					importantMessages.setText("You gained a fish.");

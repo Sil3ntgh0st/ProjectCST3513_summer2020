@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class blackSmith extends villageMainMenu {
+public class blackSmith extends villageMainMenu implements ItemListener{
 	
 	public JFrame frame;
 	public Container con;
@@ -46,7 +46,9 @@ public class blackSmith extends villageMainMenu {
 		
 		infoFrame2 = new JPanel();
 		infoFrame2.setBackground(Color.black);
-		importantMessages = new JLabel("<html>Axe: Allows you to cut wood<br/> 30 sticks & 20 stones needed");
+		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed"
+		+ "<br />Hammer: Allows you to crush rocks for double the stones<br/> 5 sticks & 7 stones needed!"
+		+ "<br />Fishing Rod: Allows you to fish<br/> 6 sticks  needed!");
 		
 		importantMessages.setForeground(Color.white);
 		infoFrame2.add(importantMessages);
@@ -56,6 +58,7 @@ public class blackSmith extends villageMainMenu {
 		infoFrame.setBackground(Color.black);
 		blackSmithChoices = new JLabel("Blacksmith items:");
 		blackSmithItems = new JComboBox(blackSmithItemOptions);
+		String bsItem = blackSmithItems.getSelectedItem().toString();
 		infoFrame.add(blackSmithChoices);
 		infoFrame.add(blackSmithItems);
 		
@@ -109,10 +112,8 @@ public class blackSmith extends villageMainMenu {
 		frame.add(quantityBar);
 		frame.add(buttonPanel);
 		Combine.setEnabled(false);
-		
-		if(T1Item.getRequirements("Axe") == true){
-			Combine.setEnabled(true);
-		}
+
+		blackSmithItems.addItemListener(this);
 		
 	    BtnListener listener = new BtnListener();
 	    btnCountUp.addActionListener(listener);
@@ -121,15 +122,25 @@ public class blackSmith extends villageMainMenu {
 		
 		//Must figure out how to read which Option is selected from the comboBox
 		//Currently 'Combine' button makes an Axe regardless of selection.
+		
 		Combine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				T1Item sticks = new T1Item("Stick"); //Adds a stick to the player
-				T1Item stones = new T1Item("Stones"); //Adds a stone to the player
-				T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
+				if(bsItem.equals("Axe")){
+					T1Item sticks = new T1Item("Stick"); //Adds a stick to the player
+					T1Item stones = new T1Item("Stones"); //Adds a stone to the player
+					T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
-				T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
+					T1Item.craft(sticks,stones,axe); //Supposed to take away 31 sticks and 21 stones (Due to the +1 from combine) and makes 0 Axe (Due to +1 from combine)
+				}
+				else if (bsItem.equals("Hammer")){
+					
+				}
+				else if(bsItem.equals("Fishing Rod")){
+
+				}
+				
 			}
 		});
 		
@@ -143,6 +154,16 @@ public class blackSmith extends villageMainMenu {
 		});
 		
 		frame.pack();
+	}
+	public void itemStateChanged(ItemEvent e){
+		if(e.getSource() == blackSmithItems){
+
+		}
+		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true){
+			Combine.setEnabled(true);
+		} else{
+			Combine.setEnabled(false);
+		}
 	}
 	
 	   private class BtnListener implements ActionListener {
