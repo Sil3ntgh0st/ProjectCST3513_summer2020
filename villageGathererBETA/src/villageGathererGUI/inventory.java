@@ -55,14 +55,11 @@ public class inventory extends villageMainMenu
 	
 	buttonPanel = new JPanel();
 	buttonPanel.setBackground(Color.black);
-	
-	search = new JButton("Search");
 
 	
 	goBack = new JButton("Go Back");
 	
-	buttonPanel.add(search);//Added buttons search and goBack to the panel.
-	buttonPanel.add(goBack);
+	buttonPanel.add(goBack);//Added goBack to the panel.
 	frame.add(topHUD);//Added frames of topHUD, infoFrame, and buttonPanel.
 	frame.add(infoFrame);
 	frame.add(buttonPanel);

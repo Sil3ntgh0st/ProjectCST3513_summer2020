@@ -24,10 +24,10 @@ public class Player {                      // superclass is T1Item and it is sub
         System.out.println("Player with no name!");
     }
     
-    public Player(String u) {
+    public Player(String u) { //When Player is created. Player will be created in the game with a base value of 100 energy
     	
     	Player.userName = u;
-    	userEnergyLevel = 500;
+    	userEnergyLevel = 100;
         System.out.println("Player new name!");
     	
     }
@@ -38,13 +38,13 @@ public class Player {                      // superclass is T1Item and it is sub
         
     }
     
-    public static String getUserName(){
+    public static String getUserName(){ // Sends username when called.
         
         return Player.userName;
         
     }
     
-    public static int getEnergyLevel() {
+    public static int getEnergyLevel() { //Sends energy level when called.
     	
 		return Player.userEnergyLevel;
     	
@@ -56,40 +56,14 @@ public class Player {                      // superclass is T1Item and it is sub
         
     }
     
-    public static void addEnergyLevel() {
+    public static void addEnergyLevel() { //adds energy when fish is eaten.
     	Player.userEnergyLevel += 25;
     }
     
     public void EnergylowAlert(){
         if (userEnergyLevel <25 ){
-            System.out.println("Engery level at 25");
+            System.out.println("Energy level at 25");
         }
    
-    }
-   
-    
-//    public String showMyThings(){
-//        
-//        return craft();                     
-//        
-//    }
-    
-//    public int numItemsCarried(){
-//        return getCount();          // calling method from the iteam class
-//        
-//    }
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
 }
