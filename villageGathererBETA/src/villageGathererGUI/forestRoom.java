@@ -60,7 +60,7 @@ public class forestRoom extends villageMainMenu {
 				
 				if(Player.userEnergyLevel != 0){
 					if(decision % 2 != 0 ) {
-						T1Item sticks = new T1Item("Stick");
+						new T1Item("Stick");
 						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 						System.out.println("You gained a Stick");
 						importantMessages.setText("You gained a Stick");
@@ -68,7 +68,7 @@ public class forestRoom extends villageMainMenu {
 	
 					}
 					else {
-						T1Item stones = new T1Item("Stone");
+						new T1Item("Stone");
 						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
 						System.out.println("You gained a Stone");
 						importantMessages.setText("You gained a Stone");

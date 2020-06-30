@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 
 import javax.swing.*;
 
@@ -21,7 +20,8 @@ public class inventory extends villageMainMenu {
 	public String format = "<html>Sticks: " + T1Item.stickCount 
 						 + "<br/>Stones: " + T1Item.stoneCount + 
 						  "<br/>Fish: " + T1Item.fishCount +
-						   "<br/>Axe: "+ T1Item.axeCount + "</html>";
+						   "<br/>Axe: "+ T1Item.axeCount + 
+						   "<br/>Fishing Rod: "+T1Item.fishingrodCount+"</html>";
 	
 	
 	public inventory() {

@@ -166,7 +166,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 				importantMessages.setText("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
 			}
 			else if(blackSmithItems.getSelectedItem().toString() == "Hammer"){
-				importantMessages.setText("<html>Hammer: Allows you to crush rocks for double the stones<br/> 5 sticks & 7 stones needed!</html>");
+				importantMessages.setText("<html>Hammer: Allows you to crush rocks<br/> for double the stones<br/> 5 sticks & 7 stones needed!</html>");
 			}
 			else if(blackSmithItems.getSelectedItem().toString() == "Fishing Rod"){
 				importantMessages.setText("<html>Fishing Rod: Allows you to fish<br/> 6 sticks needed!</html>");
