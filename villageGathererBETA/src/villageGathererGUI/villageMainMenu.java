@@ -287,6 +287,8 @@ public class villageMainMenu {
 			save.write(""+T1Item.fishCount);
 			save.newLine();
 			save.write(""+T1Item.fishingrodCount);
+			save.newLine();
+			save.write(""+T1Item.hammerCount);
 
 			save.close();
 		}
@@ -314,6 +316,7 @@ public class villageMainMenu {
 			T1Item.axeCount = Integer.parseInt(load.readLine());
 			T1Item.fishCount = Integer.parseInt(load.readLine());
 			T1Item.fishingrodCount = Integer.parseInt(load.readLine());
+			T1Item.hammerCount = Integer.parseInt(load.readLine());
 			load.close();
 		}
 		catch(Exception ex){

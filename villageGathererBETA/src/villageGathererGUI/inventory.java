@@ -21,8 +21,9 @@ public class inventory extends villageMainMenu
 	public String format = "<html>Sticks: " + T1Item.stickCount//Created a String format consisted of all the objects that can searched and crafted into the game.
 						 + "<br/>Stones: " + T1Item.stoneCount + 
 						  "<br/>Fish: " + T1Item.fishCount +
-						   "<br/>Axe: "+ T1Item.axeCount + 
-						   "<br/>Fishing Rod: "+T1Item.fishingrodCount+"</html>";
+						   "<br/>Axe(s): "+ T1Item.axeCount + 
+						   "<br/>Fishing Rod(s): "+T1Item.fishingrodCount+
+						   "<br/>Hammer(s): "+T1Item.hammerCount+"</html>";
 	
 	
 	public inventory() {

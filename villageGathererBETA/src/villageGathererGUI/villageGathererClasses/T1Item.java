@@ -7,7 +7,7 @@ import java.util.*;
 public class T1Item {
 	
 	public int count;
-	public static int stickCount,stoneCount,axeCount,fishCount,fishingrodCount;
+	public static int stickCount,stoneCount,axeCount,fishCount,fishingrodCount,hammerCount;
 	public String description, item;
 	public static String[] itemListString;
 	public static ArrayList<String> itemList = new ArrayList<>();
@@ -30,9 +30,16 @@ public class T1Item {
 //		or switch case can be used here for multiple items, 
 //		or even a loop of items can be placed here
 		if(itemName == "Stick") { //adds stick to inventory to save
+			if(axeCount > 0){
+				stickCount += (1+axeCount);
+			}else{
 			stickCount++;
+			}	
 		}
 		else if (itemName == "Stone") { //adds stone to inventory to save
+			if(hammerCount > 0){
+				stoneCount += (1+hammerCount);
+			}
 			stoneCount++;
 		}
 		else if (itemName == "Fish") { //adds fish to inventory to save
@@ -90,7 +97,7 @@ public class T1Item {
 			
 			stickCount -= a; 
 			stoneCount -= b;
-			
+			hammerCount++;
 		}
 		else if(c.item == "Fishing Rod"){ //creates fishing rod
 			
@@ -114,23 +121,23 @@ public class T1Item {
 	
 
 
-	public static boolean getRequirements(String a){ //ensures materials are present to create specific items
+	public static boolean getRequirements(String a,int x){ //ensures materials are present to create specific items
 		if (a == "Axe"){
-			if(stickCount >=31 && stoneCount >= 21){ //esnure requirements for axe is met
+			if(stickCount >=(20*x) && stoneCount >= (10*x)){ //esnure requirements for axe is met
 				return true;
 			}else{
 				return false;
 			}
 		}
 		else if(a == "Fishing Rod"){ //ensures requirements for fishing rod is met
-			if(stickCount >= 6){
+			if(stickCount >= (6*x)){
 				return true;
 			}else{
 				return false;
 			}
 		}
 		else if(a == "Hammer"){
-			if(stickCount >=5 && stoneCount >= 7){ //ensures requirement for hammer is met
+			if(stickCount >=(10*x) && stoneCount >= (20*x)){ //ensures requirement for hammer is met
 				return true;
 			}
 			else{

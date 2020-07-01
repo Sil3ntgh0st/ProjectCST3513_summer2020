@@ -62,16 +62,26 @@ public class forestRoom extends villageMainMenu {
 					if(decision % 2 != 0 ) {
 						new T1Item("Stick");
 						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
-						System.out.println("You gained a Stick");
-						importantMessages.setText("You gained a Stick");
+						if(T1Item.axeCount > 0){
+							System.out.println("You gained "+(T1Item.axeCount+1)+" sticks!");
+							importantMessages.setText("You gained "+(T1Item.axeCount+1)+" sticks!");
+						}else{
+							System.out.println("You gained a Stick");
+							importantMessages.setText("You gained a Stick");
+						}
 						topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 	
 					}
 					else {
 						new T1Item("Stone");
 						Player.updateEnergyLevel(Player.userEnergyLevel-= 5);
-						System.out.println("You gained a Stone");
-						importantMessages.setText("You gained a Stone");
+						if(T1Item.hammerCount > 0){
+							System.out.println("You gained "+(T1Item.hammerCount+1)+" stones!");
+							importantMessages.setText("You gained "+(T1Item.hammerCount+1)+" stones!");
+						}else{
+							System.out.println("You gained a stone!");
+							importantMessages.setText("You gained a stone!");
+						}
 						topHUDinfo.setText("Username: " + Player.getUserName() + " Energy: " + Player.getEnergyLevel());
 					}
 				}

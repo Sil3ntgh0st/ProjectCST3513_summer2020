@@ -69,7 +69,7 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		c.weighty = 1;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-        tfCount = new TextField("0", 2);
+        tfCount = new TextField("1", 2);
         tfCount.setEditable(false);
 		c.gridx=1;
 		c.gridwidth = 1;
@@ -125,29 +125,36 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 			public void actionPerformed(ActionEvent e) {
 				
 
-				if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Axe"))){
-					int sticks = 30; //Sets the stick cost of the Axe to be deducted in T1Item.craft()
-					int stones = 20; //Sets the stone cost of the Axe to be deducted in T1Item.craft()
-					T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
+				if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString(), Integer.parseInt(tfCount.getText())) == true) && (blackSmithItems.getSelectedItem().toString().equals("Axe"))){
+					for(int i = 0; i < Integer.parseInt(tfCount.getText()); i++){
+						int sticks = 20; //Sets the stick cost of the Axe to be deducted in T1Item.craft()
+						int stones = 10; //Sets the stone cost of the Axe to be deducted in T1Item.craft()
+						T1Item axe = new T1Item("Axe"); //Adds an Axe as per the T1Item constructor.
 
-					T1Item.craft(sticks,stones,axe); //Will subtract 30 sticks and 20 stones from the Player to provide an Axe.
+						T1Item.craft(sticks,stones,axe); //Will subtract 20 sticks and 10 stones from the Player to provide an Axe.
+					}
 				}
-				else if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true) && (blackSmithItems.getSelectedItem().toString().equals("Fishing Rod"))){
-					int sticks = 6; //Sets the stick cost of Fishing Rod
-					int stones = 0;
-					T1Item fishingRod = new T1Item("Fishing Rod");
-
-					T1Item.craft(sticks,stones,fishingRod); //Subtracts 6 sticks to create a Fishing Rod
+				else if((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString(), Integer.parseInt(tfCount.getText())) == true) && (blackSmithItems.getSelectedItem().toString().equals("Fishing Rod"))){
+					for(int i = 0; i< Integer.parseInt(tfCount.getText()); i++){
+						int sticks = 6; //Sets the stick cost of Fishing Rod
+						int stones = 0;
+						T1Item fishingRod = new T1Item("Fishing Rod");
+	
+						T1Item.craft(sticks,stones,fishingRod); //Subtracts 6 sticks to create a Fishing Rod
+					}	
 				}
-				else if (bsItem.equals("Hammer")){
-					int sticks = 5;
-					int stones = 7;
-					T1Item hammer = new T1Item("Hammer");
+				else if ((T1Item.getRequirements(blackSmithItems.getSelectedItem().toString(), Integer.parseInt(tfCount.getText())) == true) && (blackSmithItems.getSelectedItem().toString().equals("Hammer"))){
+					for(int i = 0; i< Integer.parseInt(tfCount.getText()); i++){
+						int sticks = 10;
+						int stones = 20;
+						T1Item hammer = new T1Item("Hammer");
 
-					T1Item.craft(sticks,stones,hammer); //Subtracts 5 sticks and 7 stones from Player to create a hammer
+						T1Item.craft(sticks,stones,hammer); //Subtracts 10 sticks and 20 stones from Player to create a hammer
+					}
+					
 				}
 				
-				if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == false){
+				if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString(), Integer.parseInt(tfCount.getText())) == false){
 					Combine.setEnabled(false);
 				}
 			}
@@ -169,17 +176,18 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 
 			//Changes the JLabel 'importantMessages' to appropriate selected option in the comboBox
 			if (blackSmithItems.getSelectedItem().toString() == "Axe"){
-				importantMessages.setText("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 30 sticks & 20 stones needed. </html>");
+				importantMessages.setText("<html>Axe: Allows you to cut down trees for triple the sticks<br/> 20 sticks & 10 stones needed. </html>");
 			}
 			else if(blackSmithItems.getSelectedItem().toString() == "Hammer"){
-				importantMessages.setText("<html>Hammer: Allows you to crush rocks<br/> for double the stones<br/> 5 sticks & 7 stones needed!</html>");
+				importantMessages.setText("<html>Hammer: Allows you to crush rocks<br/> for double the stones<br/> 10 sticks & 20 stones needed!</html>");
 			}
 			else if(blackSmithItems.getSelectedItem().toString() == "Fishing Rod"){
 				importantMessages.setText("<html>Fishing Rod: Allows you to fish<br/> 6 sticks needed!</html>");
 			}
 
 		}
-		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString()) == true){//If the user does not have enough materials to craft, Combine button is disabled.
+		
+		if(T1Item.getRequirements(blackSmithItems.getSelectedItem().toString(),Integer.parseInt(tfCount.getText())) == true){//If the user does not have enough materials to craft, Combine button is disabled.
 			Combine.setEnabled(true);
 		} else{
 			Combine.setEnabled(false);
@@ -196,11 +204,20 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		               // Get a reference of the source that has fired the event.
 		               // getSource() returns a java.lang.Object. Downcast back to Button.
 		         if (source == btnCountUp) {
-		            ++count;
+					++count;
+					 if(Integer.parseInt(tfCount.getText())> 0)
+					 {btnCountDown.setEnabled(true);}
+		            
 		         } else if (source == btnCountDown) {
-		            --count;
+					--count;
+					 if(Integer.parseInt(tfCount.getText()) < 3){
+						btnCountDown.setEnabled(false);
+					 }else{
+						 btnCountDown.setEnabled(true);
+					 }
+		            
 		         } else {
-		            count = 0;
+		            count = 1;
 		         }
 		         tfCount.setText(count + "");
 		      }
