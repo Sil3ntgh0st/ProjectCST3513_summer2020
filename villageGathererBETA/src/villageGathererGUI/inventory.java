@@ -1,4 +1,4 @@
-import java.awt.*;
+import java.awt.*;// importing the required packages
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -6,9 +6,9 @@ import javax.swing.*;
 import villageGathererClasses.Player;
 import villageGathererClasses.T1Item;
 
-public class inventory extends villageMainMenu 
+public class inventory extends villageMainMenu//Extending to the villageMainMenu class
 {
-	
+	//Creating these public fields
 	public JFrame frame;
 	public Container con;
 	public JPanel infoFrame;
@@ -25,36 +25,39 @@ public class inventory extends villageMainMenu
 						   "<br/>Fishing Rod(s): "+T1Item.fishingrodCount+
 						   "<br/>Hammer(s): "+T1Item.hammerCount+"</html>";
 	
+	//Making a constructor wth no args
+	public inventory() 
+	{
 	
-	public inventory() {
-	
-	frame = new JFrame("Inventory");
-	frame.setLocationRelativeTo(null);
+	frame = new JFrame("Inventory");//Creating new JFrame
+	frame.setLocationRelativeTo(null);//Setting the LocationRealtive, DefaultCloseOperation, and layout.
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setLayout(new GridLayout(3,1));
 	con = frame.getContentPane();
 	
-	topHUD = new JPanel();
+	topHUD = new JPanel();//Create the new JPanel and settin gthe background to black.
 	topHUD.setBackground(Color.black);
 	
-	topHUDinfo = new JLabel("Username: "+ Player.userName + " Energy: " + Player.getEnergyLevel());
+	topHUDinfo = new JLabel("Username: "+ Player.userName + " Energy: " + Player.getEnergyLevel());//Create new JLabel and settin ghte foreground to newOrange.
 	topHUDinfo.setForeground(newOrange);
 	
-	infoFrame = new JPanel();
+	infoFrame = new JPanel();//Creating a new JPanel and setting the background to the Color.gray.
 	infoFrame.setBackground(Color.gray);
 	
-	importantMessages = new JLabel();
+	importantMessages = new JLabel();//Create a new JLabel and adding the importantMessages in the infoFrame.
 	infoFrame.add(importantMessages);
-	if(itemListSize != 0) {
+		
+	if(itemListSize != 0) //Create an if statement if the list isn't 0 then will display the text String fromat.
+	{
 		
 		importantMessages.setText(format);
 	}
 
 	
-	topHUD.add(topHUDinfo);
+	topHUD.add(topHUDinfo);//Added the topHUDinfo.
 
 	
-	buttonPanel = new JPanel();
+	buttonPanel = new JPanel();//Creating a new JPanel and setting the background to the Color.black.
 	buttonPanel.setBackground(Color.black);
 
 	

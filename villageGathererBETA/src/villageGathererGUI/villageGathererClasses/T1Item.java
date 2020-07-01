@@ -169,3 +169,34 @@ public class T1Item {
 
 	
 }
+//Cody's code changes before they were fixed
+/*public static int hammerCount;
+public static int fishingCount;
+fishCount = 0;
+else if (itemName == "Fish") {
+			fishCount++;
+else {
+			if(c.item == "Hammer") {
+				stickCount -= a; 
+				stoneCount -= b;
+				hammerCount++;
+			}else {
+				if(c.item == "Fishing Rod") {
+					stickCount -= a;
+					stoneCount -= b;
+					fishingCount++;
+else{
+				if(a == "Hammer") {
+					if(stickCount >=4 && stoneCount >=6) {
+						return true;
+					}else {
+						if(a == "Fishing Rod") {
+							if(stickCount >=3 && stoneCount >=3) {
+								return true;
+							}else {
+								return false;
+public static int getFishCount() {
+		
+		return T1Item.fishCount;
+	}
+*/
