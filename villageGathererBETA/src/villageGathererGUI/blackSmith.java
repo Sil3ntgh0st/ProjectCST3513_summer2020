@@ -207,3 +207,31 @@ public class blackSmith extends villageMainMenu implements ItemListener{
 		   }
 
 }
+//Cody's code changes before they were fixed.
+/*infoFrame2 = new JPanel();
+		infoFrame2.setBackground(Color.black);
+		importantMessages = new JLabel("<html>Axe: Allows you to cut down trees for wood<br/> 3 sticks & 4 stones needed"
+				+ "<br />Hammer: Allows you to crush rocks<br/> 4 sticks & 6 stones needed!"
+				+ "<br />Fishing Rod: Allows you to fish<br/> 3 sticks & 3 stones needed!");
+		importantMessages.setForeground(Color.white);
+		infoFrame2.add(importantMessages);
+		
+		if(T1Item.getRequirements("Axe") == true){
+			Combine.setEnabled(true);
+		}else {
+			if(T1Item.getRequirements("Hammer") == true) {
+				Combine.setEnabled(true);
+			}else {
+				if(T1Item.getRequirements("Fishing Rod") == true) {
+					Combine.setEnabled(true);
+				}
+			}
+		}
+		T1Item hammer = new T1Item("Hammer");
+				
+				T1Item.craft(sticks,stones,hammer);
+				
+				T1Item fishingRod = new T1Item("Fishing Rod");
+				
+				T1Item.craft(sticks,fishingRod);
+				*/
