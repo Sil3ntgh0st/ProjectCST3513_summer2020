@@ -1,8 +1,6 @@
 package villageGathererClasses;
 import java.util.*;
 
-//import javax.swing.JButton;
-
 
 public class T1Item {
 	
@@ -58,12 +56,7 @@ public class T1Item {
 	public void setCount(int a) {
 		count = a;
 	}
-	
-	
-//	public void pickUp(T1Item a) {
-//		a.setCount(a.getCount()+1);
-//	}
-	
+		
 	public int getCount() {
 		return count;
 	}
@@ -146,17 +139,6 @@ public class T1Item {
 		}
 		return false;
 	}
-
-//	public static String getAllItems(ArrayList<String>[] a) {
-//		
-//		int count = 0;
-//		
-//		for (int i = 0; i < a.length ; i++ ) {
-//			count++;	
-//		} 
-//		return "Your items are: " + itemList.get(count);
-//		
-//	}
 	
 	public static Integer allItemsSize() {
 		
@@ -169,34 +151,3 @@ public class T1Item {
 
 	
 }
-//Cody's code changes before they were fixed
-/*public static int hammerCount;
-public static int fishingCount;
-fishCount = 0;
-else if (itemName == "Fish") {
-			fishCount++;
-else {
-			if(c.item == "Hammer") {
-				stickCount -= a; 
-				stoneCount -= b;
-				hammerCount++;
-			}else {
-				if(c.item == "Fishing Rod") {
-					stickCount -= a;
-					stoneCount -= b;
-					fishingCount++;
-else{
-				if(a == "Hammer") {
-					if(stickCount >=4 && stoneCount >=6) {
-						return true;
-					}else {
-						if(a == "Fishing Rod") {
-							if(stickCount >=3 && stoneCount >=3) {
-								return true;
-							}else {
-								return false;
-public static int getFishCount() {
-		
-		return T1Item.fishCount;
-	}
-*/

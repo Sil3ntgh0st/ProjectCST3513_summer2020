@@ -17,7 +17,6 @@ public class inventory extends villageMainMenu//Extending to the villageMainMenu
 	public JButton goBack, search;
 	public JLabel importantMessages, topHUDinfo;
 	public int itemListSize = T1Item.allItemsSize();
-//	public JList list = new JList(new DefaultListModel());
 	public String format = "<html>Sticks: " + T1Item.stickCount//Created a String format consisted of all the objects that can searched and crafted into the game.
 						 + "<br/>Stones: " + T1Item.stoneCount + 
 						  "<br/>Fish: " + T1Item.fishCount +

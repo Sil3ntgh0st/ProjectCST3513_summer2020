@@ -12,7 +12,7 @@ public class NPC {
         switch (randy){
             case 0:
             String x ="<html>Good day "+Player.userName+"!<br/></html>";
-            return x;
+            return x; //x returns to villageMainMenu
             case 1:
             x = "<html>Did you know there's a blacksmith in town? He's located further up the road!<br/></html>";
             return x;
@@ -36,7 +36,7 @@ public class NPC {
         switch (randy){
             case 0:
             String x = "<html>Hello "+Player.userName+"! What can I do for you?</html>";
-            return x;
+            return x; // x returns to blackSmith
             case 1:
             x = "<html>Hey "+Player.userName+"! What do you need?</html>";
             return x;
